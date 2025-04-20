@@ -1,0 +1,201 @@
+<mujoco>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+             rgb2=".2 .3 .4" width="300" height="300" mark="none"/>
+    <material name="grid" texture="grid" texrepeat="1 1"
+              texuniform="true" reflectance=".2"/>
+  </asset>
+
+  <worldbody>
+    <light name="light" pos="0 0 2"/>
+    <geom name="floor" type="plane" pos="0 0 -.5" size="4 4 .1" material="grid"/>
+    <camera name="fixed" pos="0 -2 1" xyaxes="1 0 0 0 1 2"/>
+
+    <!-- Table -->
+    <body name="table" pos="0 0 0">
+      <geom name="table_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" rgba="0.6 0.4 0.2 1"/>
+    </body>
+
+    <!-- Wall with hole -->
+    <body name="wall" pos="0 0.55 0.75">
+      <geom name="wall_panel" type="box" size="0.5 0.05 0.25" rgba="0.5 0.5 0.5 1"/>
+      <geom type="cylinder" size="0.03 0.02" pos="0 -0.05 0.05" rgba="0 0 0 1" euler="90 0 0"/>
+    </body>
+
+        <!-- Fiber optic cable on the table with a hanging tail -->
+<body name="fiber_root" pos="0.2 -0.85 0.5">
+  <joint name="fiber_root_free" type="free"/>
+  <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+  <!-- Segment 1 -->
+  <body name="fiber_seg1" pos="0 0.1 0">
+    <joint type="ball" damping="0.05"/>
+    <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+    <!-- Segment 2 -->
+    <body name="fiber_seg2" pos="0 0.1 0">
+      <joint type="ball" damping="0.05"/>
+      <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+      <!-- Segment 3 -->
+      <body name="fiber_seg3" pos="0 0.1 0">
+        <joint type="ball" damping="0.05"/>
+        <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+        <!-- Segment 4 -->
+        <body name="fiber_seg4" pos="0 0.1 0">
+          <joint type="ball" damping="0.05"/>
+          <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+          <!-- Segment 5 -->
+          <body name="fiber_seg5" pos="0 0.1 0">
+            <joint type="ball" damping="0.05"/>
+            <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+            <!-- Segment 6 with fiber tip -->
+            <body name="fiber_seg6" pos="0 0.1 0">
+              <joint type="ball" damping="0.05"/>
+              <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+              <!-- Glowing tip -->
+              <body name="fiber_tip" pos="0 0.1 0">
+                <geom name="fiber_light" type="sphere" size="0.01" rgba="0 1 1 1"/>
+              </body>
+            </body>
+
+          </body>
+        </body>
+
+      </body>
+    </body>
+  </body>
+</body>
+
+
+
+    <!-- Simple 2-Finger Gripper -->
+    <body name="gripper_base" pos="0.2 -0.3 0.85">
+      <geom type="sphere" size="0.01" rgba="0.5 0.5 0.5 1"/>
+      <!-- Left finger -->
+      <body name="left_finger" pos="-0.02 0 0">
+        <joint name="left_slide" type="slide" axis="1 0 0" range="-0.02 0" damping="1"/>
+        <geom type="box" size="0.005 0.015 0.03" rgba="0 0 1 1"/>
+      </body>
+      <!-- Right finger -->
+      <body name="right_finger" pos="0.02 0 0">
+        <joint name="right_slide" type="slide" axis="-1 0 0" range="-0.02 0" damping="1"/>
+        <geom type="box" size="0.005 0.015 0.03" rgba="0 0 1 1"/>
+      </body>
+    </body>
+
+    <!-- Placeholder hand with 22 DoF -->
+<body name="hand" pos="0.3 -0.3 0.9">
+  <!-- Wrist (2 DoF) -->
+  <joint name="wrist_pitch" type="hinge" axis="1 0 0" range="-45 45"/>
+  <joint name="wrist_yaw" type="hinge" axis="0 0 1" range="-45 45"/>
+  <geom type="box" size="0.04 0.06 0.02" rgba="0.7 0.7 0.7 1"/> <!-- palm -->
+
+  <!-- Fingers -->
+  <!-- Thumb (4 joints) -->
+  <body name="thumb" pos="-0.03 0.03 0.01">
+    <joint type="hinge" axis="0 1 0" range="-45 45"/>
+    <geom type="capsule" size="0.005 0.025" fromto="0 0 0 0 0.025 0"/>
+    <body>
+      <joint type="hinge" axis="0 1 0" range="-45 45"/>
+      <geom type="capsule" size="0.005 0.02" fromto="0 0 0 0 0.02 0"/>
+      <body>
+        <joint type="hinge" axis="0 1 0" range="-45 45"/>
+        <geom type="capsule" size="0.004 0.015" fromto="0 0 0 0 0.015 0"/>
+        <body>
+          <joint type="hinge" axis="0 1 0" range="-45 45"/>
+          <geom type="capsule" size="0.003 0.01" fromto="0 0 0 0 0.01 0"/>
+        </body>
+      </body>
+    </body>
+  </body>
+
+  <!-- Index, Middle, Ring, Pinky (4 fingers × 4 joints) -->
+  <!-- Index -->
+  <body name="index" pos="-0.015 0.06 0.01">
+    <joint type="hinge" axis="0 1 0" range="-45 45"/>
+    <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0.03 0"/>
+    <body>
+      <joint type="hinge" axis="0 1 0" range="-45 45"/>
+      <geom type="capsule" size="0.005 0.025" fromto="0 0 0 0 0.025 0"/>
+      <body>
+        <joint type="hinge" axis="0 1 0" range="-45 45"/>
+        <geom type="capsule" size="0.004 0.02" fromto="0 0 0 0 0.02 0"/>
+        <body>
+          <joint type="hinge" axis="0 1 0" range="-45 45"/>
+          <geom type="capsule" size="0.003 0.015" fromto="0 0 0 0 0.015 0"/>
+        </body>
+      </body>
+    </body>
+  </body>
+
+  <!-- Middle -->
+  <body name="middle" pos="0 0.065 0.01">
+    <joint type="hinge" axis="0 1 0" range="-45 45"/>
+    <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0.03 0"/>
+    <body>
+      <joint type="hinge" axis="0 1 0" range="-45 45"/>
+      <geom type="capsule" size="0.005 0.025" fromto="0 0 0 0 0.025 0"/>
+      <body>
+        <joint type="hinge" axis="0 1 0" range="-45 45"/>
+        <geom type="capsule" size="0.004 0.02" fromto="0 0 0 0 0.02 0"/>
+        <body>
+          <joint type="hinge" axis="0 1 0" range="-45 45"/>
+          <geom type="capsule" size="0.003 0.015" fromto="0 0 0 0 0.015 0"/>
+        </body>
+      </body>
+    </body>
+  </body>
+
+  <!-- Ring -->
+  <body name="ring" pos="0.015 0.06 0.01">
+    <joint type="hinge" axis="0 1 0" range="-45 45"/>
+    <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0.03 0"/>
+    <body>
+      <joint type="hinge" axis="0 1 0" range="-45 45"/>
+      <geom type="capsule" size="0.005 0.025" fromto="0 0 0 0 0.025 0"/>
+      <body>
+        <joint type="hinge" axis="0 1 0" range="-45 45"/>
+        <geom type="capsule" size="0.004 0.02" fromto="0 0 0 0 0.02 0"/>
+        <body>
+          <joint type="hinge" axis="0 1 0" range="-45 45"/>
+          <geom type="capsule" size="0.003 0.015" fromto="0 0 0 0 0.015 0"/>
+        </body>
+      </body>
+    </body>
+  </body>
+
+  <!-- Pinky -->
+  <body name="pinky" pos="0.03 0.045 0.01">
+    <joint type="hinge" axis="0 1 0" range="-45 45"/>
+    <geom type="capsule" size="0.005 0.025" fromto="0 0 0 0 0.025 0"/>
+    <body>
+      <joint type="hinge" axis="0 1 0" range="-45 45"/>
+      <geom type="capsule" size="0.005 0.02" fromto="0 0 0 0 0.02 0"/>
+      <body>
+        <joint type="hinge" axis="0 1 0" range="-45 45"/>
+        <geom type="capsule" size="0.004 0.015" fromto="0 0 0 0 0.015 0"/>
+        <body>
+          <joint type="hinge" axis="0 1 0" range="-45 45"/>
+          <geom type="capsule" size="0.003 0.01" fromto="0 0 0 0 0.01 0"/>
+        </body>
+      </body>
+    </body>
+  </body>
+</body>
+
+
+  </worldbody>
+
+  <actuator>
+    <!-- Gripper actuators -->
+    <position name="left_act" joint="left_slide" ctrlrange="-0.02 0" kp="500"/>
+    <position name="right_act" joint="right_slide" ctrlrange="-0.02 0" kp="500"/>
+  </actuator>
+
+
+</mujoco>

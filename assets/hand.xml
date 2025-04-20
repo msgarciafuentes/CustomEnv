@@ -1,0 +1,119 @@
+<mujoco>
+  <worldbody>
+    <!-- Base of the hand -->
+    <body name="hand_root" pos="0 0 0.9">
+      <!-- Wrist with 2 DoF -->
+      <joint name="wrist_pitch" type="hinge" axis="1 0 0" range="-30 30"/>
+      <joint name="wrist_yaw" type="hinge" axis="0 0 1" range="-30 30"/>
+      <geom type="sphere" size="0.015" rgba="0.7 0.7 0.7 1"/>
+
+      <!-- Define fingers -->
+
+      <body name="thumb_base" pos="0 0 0">
+        <body name="thumb_rotated" euler="0 0 -40">
+          <body pos="0.02 0 0">
+            <joint name="thumb_j1" type="hinge" axis="0 1 0"/>
+            <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+            <body>
+              <joint name="thumb_j2" type="hinge" axis="0 1 0"/>
+              <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+              <body>
+                <joint name="thumb_j3" type="hinge" axis="0 1 0"/>
+                <geom type="capsule" fromto="0 0 0 0 0.015 0" size="0.004"/>
+                <body>
+                  <joint name="thumb_j4" type="hinge" axis="0 1 0"/>
+                  <geom type="capsule" fromto="0 0 0 0 0.01 0" size="0.004"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    
+      <body name="index_base" pos="0 0 0">
+        <body name="index_rotated" euler="0 0 -20">
+          <body pos="0.02 0 0">
+            <joint name="index_j1" type="hinge" axis="0 1 0"/>
+            <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+            <body>
+              <joint name="index_j2" type="hinge" axis="0 1 0"/>
+              <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+              <body>
+                <joint name="index_j3" type="hinge" axis="0 1 0"/>
+                <geom type="capsule" fromto="0 0 0 0 0.015 0" size="0.004"/>
+                <body>
+                  <joint name="index_j4" type="hinge" axis="0 1 0"/>
+                  <geom type="capsule" fromto="0 0 0 0 0.01 0" size="0.004"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    
+      <body name="middle_base" pos="0 0 0">
+        <body name="middle_rotated" euler="0 0 0">
+          <body pos="0.02 0 0">
+            <joint name="middle_j1" type="hinge" axis="0 1 0"/>
+            <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+            <body>
+              <joint name="middle_j2" type="hinge" axis="0 1 0"/>
+              <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+              <body>
+                <joint name="middle_j3" type="hinge" axis="0 1 0"/>
+                <geom type="capsule" fromto="0 0 0 0 0.015 0" size="0.004"/>
+                <body>
+                  <joint name="middle_j4" type="hinge" axis="0 1 0"/>
+                  <geom type="capsule" fromto="0 0 0 0 0.01 0" size="0.004"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    
+      <body name="ring_base" pos="0 0 0">
+        <body name="ring_rotated" euler="0 0 20">
+          <body pos="0.02 0 0">
+            <joint name="ring_j1" type="hinge" axis="0 1 0"/>
+            <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+            <body>
+              <joint name="ring_j2" type="hinge" axis="0 1 0"/>
+              <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+              <body>
+                <joint name="ring_j3" type="hinge" axis="0 1 0"/>
+                <geom type="capsule" fromto="0 0 0 0 0.015 0" size="0.004"/>
+                <body>
+                  <joint name="ring_j4" type="hinge" axis="0 1 0"/>
+                  <geom type="capsule" fromto="0 0 0 0 0.01 0" size="0.004"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    
+      <body name="pinky_base" pos="0 0 0">
+        <body name="pinky_rotated" euler="0 0 40">
+          <body pos="0.02 0 0">
+            <joint name="pinky_j1" type="hinge" axis="0 1 0"/>
+            <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+            <body>
+              <joint name="pinky_j2" type="hinge" axis="0 1 0"/>
+              <geom type="capsule" fromto="0 0 0 0 0.02 0" size="0.004"/>
+              <body>
+                <joint name="pinky_j3" type="hinge" axis="0 1 0"/>
+                <geom type="capsule" fromto="0 0 0 0 0.015 0" size="0.004"/>
+                <body>
+                  <joint name="pinky_j4" type="hinge" axis="0 1 0"/>
+                  <geom type="capsule" fromto="0 0 0 0 0.01 0" size="0.004"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    
+    </body>
+  </worldbody>
+</mujoco>
