@@ -76,6 +76,8 @@
       <joint name="gripper_x" type="slide" axis="1 0 0" range="-1 1" damping="5"/>
       <joint name="gripper_y" type="slide" axis="0 1 0" range="-1 1" damping="5"/>
       <joint name="gripper_z" type="slide" axis="0 0 1" range="-0.5 1" damping="5"/>
+      <joint name="wrist_flex" type="hinge" axis="1 0 0" range="-1 1" damping="1.0"/>
+      <joint name="wrist_abduction" type="hinge" axis="0 1 0" range="-1 1" damping="1.0"/>
       <geom type="sphere" size="0.01" mass="0.01" contype="0" conaffinity="0" rgba="0.5 0.5 0.5 1"/>
 
       <geom name="palm_connector_thumb" type="capsule" fromto="0 0 0  -0.05 0 0.025" size="0.005" rgba="0 0 0 1" mass="0.01"/>
@@ -86,25 +88,21 @@
 
 
       <!-- Thumb Finger -->
-      <body name="thumb_base" pos="-0.05 0 0">
-        <geom type="sphere" size="0.001" mass="0.001" rgba="0 0 0 0"/>
-        <!-- <joint name="thumb_base" type="slide" axis="1 0 0" range="-0.02 0" damping="1"/> -->
+      <body name="thumb_mcp" pos="-0.05 0 0.03">
+        <joint name="thumb_base" type="hinge" axis="0 -1 0" range="0 2.0944" damping="0.1"/>
+        <joint name="thumb_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+        <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0 0.03" rgba="0 0 1 1" mass="0.01" friction="1 0.1 0.1"/>
 
-        <body name="thumb_mcp" pos="0 0 0.03">
-          <joint name="thumb_mcp" type="hinge" axis="0 1 0" range="0 2.0944" damping="0.1"/>
-          <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0 0.03" rgba="0 0 1 1" mass="0.01" friction="1 0.1 0.1"/>
-
-          <body name="thumb_ip" pos="0 0 0.03">
-            <joint name="thumb_ip" type="hinge" axis="0 1 0" range="0 2.0944" damping="0.1"/>
-            <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0 0.02" rgba="1 0 0 1" mass="0.01" friction="1 0.1 0.1"/>
-          </body>
+        <body name="thumb_ip" pos="0 0 0.03">
+          <joint name="thumb_ip" type="hinge" axis="0 1 0" range="0 2.0944" damping="0.1"/>
+          <geom type="capsule" size="0.005 0.03" fromto="0 0 0 0 0 0.02" rgba="1 0 0 1" mass="0.01" friction="1 0.1 0.1"/>
         </body>
       </body>
 
       <!-- Index Finger -->
       <body name="index_base" pos="-0.03 0 0.05">
-        <joint name="index_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
-        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" rgba="0 1 0 1" mass="0.01"/>
+        <joint name="index_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.5"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" rgba="0 1 0 1" mass="0.1"/>
 
         <body name="index_pip" pos="0 0 0.04">
           <joint name="index_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
@@ -176,22 +174,25 @@
     <position name="gripper_x_act" joint="gripper_x" ctrlrange="-1 1" kp="50"/>
     <position name="gripper_y_act" joint="gripper_y" ctrlrange="-1 1" kp="50"/>
     <position name="gripper_z_act" joint="gripper_z" ctrlrange="-0.3 1" kp="50"/>
+    <position name="wrist_flex_act" joint="wrist_flex" ctrlrange="-1 1" kp="15"/>
+    <position name="wrist_abduction_act" joint="wrist_abduction" ctrlrange="-1 1" kp="15"/>
 
     
-    <position name="thumb_mcp_act" joint="thumb_mcp" ctrlrange="0 2" kp="30"/>
-    <position name="thumb_ip_act" joint="thumb_ip" ctrlrange="0 2" kp="30"/>
-    <position name="index_mcp_act" joint="index_mcp" ctrlrange="0 2" kp="30"/>
-    <position name="index_pip_act" joint="index_pip" ctrlrange="0 2" kp="30"/>
-    <position name="index_dip_act" joint="index_dip" ctrlrange="0 2" kp="30"/>
-    <position name="middle_mcp_act" joint="middle_mcp" ctrlrange="0 2" kp="30"/>
-    <position name="middle_pip_act" joint="middle_pip" ctrlrange="0 2" kp="30"/>
-    <position name="middle_dip_act" joint="middle_dip" ctrlrange="0 2" kp="30"/>
-    <position name="ring_mcp_act" joint="ring_mcp" ctrlrange="0 2" kp="30"/>
-    <position name="ring_pip_act" joint="ring_pip" ctrlrange="0 2" kp="30"/>
-    <position name="ring_dip_act" joint="ring_dip" ctrlrange="0 2" kp="30"/>
-    <position name="pinky_mcp_act" joint="pinky_mcp" ctrlrange="0 2" kp="30"/>
-    <position name="pinky_pip_act" joint="pinky_pip" ctrlrange="0 2" kp="30"/>
-    <position name="pinky_dip_act" joint="pinky_dip" ctrlrange="0 2" kp="30"/>
+    <position name="thumb_base_act" joint="thumb_base" ctrlrange="0 2" kp="15"/>
+    <position name="thumb_mcp_act" joint="thumb_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="thumb_ip_act" joint="thumb_ip" ctrlrange="0 2" kp="15"/>
+    <position name="index_mcp_act" joint="index_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="index_pip_act" joint="index_pip" ctrlrange="0 2" kp="15"/>
+    <position name="index_dip_act" joint="index_dip" ctrlrange="0 2" kp="15"/>
+    <position name="middle_mcp_act" joint="middle_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="middle_pip_act" joint="middle_pip" ctrlrange="0 2" kp="15"/>
+    <position name="middle_dip_act" joint="middle_dip" ctrlrange="0 2" kp="15"/>
+    <position name="ring_mcp_act" joint="ring_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="ring_pip_act" joint="ring_pip" ctrlrange="0 2" kp="15"/>
+    <position name="ring_dip_act" joint="ring_dip" ctrlrange="0 2" kp="15"/>
+    <position name="pinky_mcp_act" joint="pinky_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="pinky_pip_act" joint="pinky_pip" ctrlrange="0 2" kp="15"/>
+    <position name="pinky_dip_act" joint="pinky_dip" ctrlrange="0 2" kp="15"/>
   </actuator>
 
 
