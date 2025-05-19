@@ -5,8 +5,10 @@ import pandas as pd
 import time
 
 # Load CyberGlove data
-filename = 'fist' 
-cyberglove_data = pd.read_csv(f'data/{filename}.csv')
+#dir_name = 'data/'
+dir_name = 'data/20250507/' 
+filename = 'abdaction_2'
+cyberglove_data = pd.read_csv(f'{dir_name}{filename}.csv')
 
 # Choose relevant sensors
 sensor_columns = [f"sensor_{i}" for i in range(18)]  # Adjust if needed
@@ -20,14 +22,34 @@ print(calibrated_data)
 # Clamp negative values to zero
 calibrated_data = calibrated_data.clip(lower=0)
 
-# 🔥 Save calibrated data
+# Save calibrated data
 calibrated_data.to_csv(f'output/calibrated_data_{filename}.csv', index=False)
 
 # Normalize to range [0, 2.0944] radians (120°)
-normalized_data = (calibrated_data / 255.0) * 2.0944  # or rescale differently if needed
+normalized_data = (calibrated_data / 255.0) * 2.0944 * 1.4 # or rescale differently if needed
 
 # Map CyberGlove sensor columns to MuJoCo actuators
 sensor_to_actuator = {
+    'sensor_0': 'thumb_roll_act', #check
+    'sensor_1': 'thumb_mcp_act', #check
+    'sensor_2': 'thumb_ip_act', #check?
+    'sensor_3': 'index_abd_act',
+    'sensor_4': 'index_mcp_act', #check
+    'sensor_5': 'index_pip_act', #check
+    'sensor_6': 'middle_mcp_act', #check
+    'sensor_7': 'middle_pip_act', #check
+    'sensor_8': 'ring_abd_act',
+    'sensor_9': 'ring_mcp_act', #check
+    'sensor_10': 'ring_pip_act', #check
+    'sensor_11': 'pinky_abd_act',
+    'sensor_12': 'pinky_mcp_act', #check
+    'sensor_13': 'pinky_pip_act', #check
+    'sensor_15': 'thumb_base_act',
+    'sensor_16': 'wrist_flex_act',
+    'sensor_17': 'wrist_abduction_act',
+}
+
+sensor_to_actuator2 = {
     'sensor_0': 'thumb_mcp_act',
     'sensor_1': 'thumb_ip_act',
     'sensor_2': 'thumb_base_act',
@@ -50,7 +72,15 @@ data = mujoco.MjData(model)
 # Find actuator IDs
 actuator_ids = {name: model.actuator(name).id for name in sensor_to_actuator.values()}
 
-print("Actuator IDs:", actuator_ids)
+actuator_names = [mujoco.mj_id2name(model, mujoco.mjtObj.mjOBJ_ACTUATOR, i) for i in range(model.nu)]
+
+for dip_act in ['index_dip_act', 'middle_dip_act', 'ring_dip_act', 'pinky_dip_act']:
+    if dip_act in actuator_names:
+        actuator_ids[dip_act] = model.actuator(dip_act).id
+
+for actuator, id in actuator_ids.items():
+    print(f"Actuator {id}: {actuator}")
+
 
 # Set speed control
 frame_duration = 0.001  # About 50 FPS
@@ -82,7 +112,17 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
                     interpolated_value = (1 - blend) * sensor_value_current + blend * sensor_value_next
 
                     actuator_id = actuator_ids[actuator_name]
+                    #print(f"actuator id: {actuator_id} and interpolated data: {interpolated_value}")
                     data.ctrl[actuator_id] = interpolated_value
+
+                dip_scale = 0.66  # or 2/3
+
+                # Example: middle DIP is 2/3 of middle PIP
+                data.ctrl[actuator_ids['index_dip_act']] = data.ctrl[actuator_ids['index_pip_act']] * dip_scale
+                data.ctrl[actuator_ids['middle_dip_act']] = data.ctrl[actuator_ids['middle_pip_act']] * dip_scale
+                data.ctrl[actuator_ids['ring_dip_act']] = data.ctrl[actuator_ids['ring_pip_act']] * dip_scale
+                data.ctrl[actuator_ids['pinky_dip_act']] = data.ctrl[actuator_ids['pinky_pip_act']] * dip_scale
+
 
                 mujoco.mj_step(model, data)
                 viewer.sync()
