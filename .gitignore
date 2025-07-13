@@ -1,0 +1,9 @@
+#ignore all files in output directory
+output/*
+
+#ignore Mujoco .txt
+MUJOCO_LOG.TXT
+
+#ignore camera calibration files
+cam_data/*
+data/*

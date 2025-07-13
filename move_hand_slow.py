@@ -5,9 +5,9 @@ import pandas as pd
 import time
 
 # Load CyberGlove data
-#dir_name = 'data/'
-dir_name = 'data/20250507/' 
-filename = 'abdaction_2'
+dir_name = 'data/'
+#dir_name = 'data/20250507/' 
+filename = 'middle_2'
 cyberglove_data = pd.read_csv(f'{dir_name}{filename}.csv')
 
 # Choose relevant sensors
@@ -30,37 +30,21 @@ normalized_data = (calibrated_data / 255.0) * 2.0944 * 1.4 # or rescale differen
 
 # Map CyberGlove sensor columns to MuJoCo actuators
 sensor_to_actuator = {
-    'sensor_0': 'thumb_roll_act', #check
-    'sensor_1': 'thumb_mcp_act', #check
-    'sensor_2': 'thumb_ip_act', #check?
+    'sensor_0': 'thumb_roll_act', 
+    'sensor_1': 'thumb_mcp_act', 
+    'sensor_2': 'thumb_ip_act', 
     'sensor_3': 'index_abd_act',
-    'sensor_4': 'index_mcp_act', #check
-    'sensor_5': 'index_pip_act', #check
-    'sensor_6': 'middle_mcp_act', #check
-    'sensor_7': 'middle_pip_act', #check
+    'sensor_4': 'index_mcp_act', 
+    'sensor_5': 'index_pip_act', 
+    'sensor_6': 'middle_mcp_act', 
+    'sensor_7': 'middle_pip_act', 
     'sensor_8': 'ring_abd_act',
-    'sensor_9': 'ring_mcp_act', #check
-    'sensor_10': 'ring_pip_act', #check
+    'sensor_9': 'ring_mcp_act', 
+    'sensor_10': 'ring_pip_act', 
     'sensor_11': 'pinky_abd_act',
-    'sensor_12': 'pinky_mcp_act', #check
-    'sensor_13': 'pinky_pip_act', #check
+    'sensor_12': 'pinky_mcp_act', 
+    'sensor_13': 'pinky_pip_act', 
     'sensor_15': 'thumb_base_act',
-    'sensor_16': 'wrist_flex_act',
-    'sensor_17': 'wrist_abduction_act',
-}
-
-sensor_to_actuator2 = {
-    'sensor_0': 'thumb_mcp_act',
-    'sensor_1': 'thumb_ip_act',
-    'sensor_2': 'thumb_base_act',
-    'sensor_3': 'index_mcp_act',
-    'sensor_4': 'index_pip_act',
-    'sensor_5': 'middle_mcp_act',
-    'sensor_6': 'middle_pip_act',
-    'sensor_7': 'ring_mcp_act',
-    'sensor_8': 'ring_pip_act',
-    'sensor_9': 'pinky_mcp_act',
-    'sensor_10': 'pinky_pip_act',
     'sensor_16': 'wrist_flex_act',
     'sensor_17': 'wrist_abduction_act',
 }
@@ -84,21 +68,20 @@ for actuator, id in actuator_ids.items():
 
 # Set speed control
 frame_duration = 0.001  # About 50 FPS
-steps = 5  # Interpolation steps
-
-
+steps = 1  # Interpolation steps
 
 # Start viewer
 with mujoco.viewer.launch_passive(model, data) as viewer:
     viewer.cam.azimuth = 120
-    viewer.cam.elevation = -30
-    viewer.cam.distance = 1.5
+    viewer.cam.elevation = -20
+    viewer.cam.distance = 1
     viewer.cam.lookat[:] = [0.1, 0.0, 0.8]
 
-    time.sleep(0.001)
+    time.sleep(frame_duration)
 
     while viewer.is_running():
         for frame_index in range(len(normalized_data) - 1):
+
             current_row = normalized_data.iloc[frame_index]
             next_row = normalized_data.iloc[frame_index + 1]
 
