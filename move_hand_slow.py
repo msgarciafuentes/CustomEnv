@@ -5,9 +5,9 @@ import pandas as pd
 import time
 
 # Load CyberGlove data
-dir_name = 'data/'
+dir_name = 'data/20250507/'
 #dir_name = 'data/20250507/' 
-filename = 'middle_2'
+filename = 'yooooo'
 cyberglove_data = pd.read_csv(f'{dir_name}{filename}.csv')
 
 # Choose relevant sensors

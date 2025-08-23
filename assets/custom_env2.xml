@@ -75,9 +75,10 @@
     <body name="gripper_base" pos="0.2 -0.3 0.85">
       <joint name="gripper_x" type="slide" axis="1 0 0" range="-1 1" damping="5"/>
       <joint name="gripper_y" type="slide" axis="0 1 0" range="-1 1" damping="5"/>
-      <joint name="gripper_z" type="slide" axis="0 0 1" range="-0.5 1" damping="5"/>
+      <joint name="gripper_z" type="slide" axis="0 0 1" range="-1 1" damping="5"/>
       <joint name="wrist_flex" type="hinge" axis="-1 0 0" range="-1 1" damping="1.0"/>
       <joint name="wrist_abduction" type="hinge" axis="0 1 0" range="-1 1" damping="1.0"/>
+      <joint name="wrist_roll" type="hinge" axis="0 0 1" range="-1 1" damping="1.0"/>
       <geom type="sphere" size="0.01" mass="0.01" contype="0" conaffinity="0" rgba="0.5 0.5 0.5 1"/>
 
       <geom name="palm_connector_thumb" type="capsule" fromto="0 0 0  -0.05 0 0.025" size="0.005" rgba="0 0 0 1" mass="0.01"/>
@@ -169,6 +170,13 @@
       </body>
 
     </body>
+
+    <!-- Ball to pick up -->
+    <body name="ball" pos="0.0 0.0 0.65">
+      <joint type="free"/>
+      <geom name="ball_geom" type="sphere" size="0.05" density="500"
+            rgba="0.2 0.4 0.8 1" friction="1 0.005 0.0001"/>
+    </body>
   
   </worldbody>
 
@@ -176,12 +184,14 @@
     <!-- Gripper actuators -->
     <!-- <position name="thumb_act" joint="thumb_base" ctrlrange="-0.02 1" kp="500"/> -->
     <!-- IMU -->
-    <position name="gripper_x_act" joint="gripper_x" ctrlrange="-1 1" kp="50"/>
+    <position name="gripper_x_act" joint="gripper_x" ctrlrange="-1 1" kp="150"/>
     <position name="gripper_y_act" joint="gripper_y" ctrlrange="-1 1" kp="50"/>
-    <position name="gripper_z_act" joint="gripper_z" ctrlrange="-0.3 1" kp="50"/>
+    <position name="gripper_z_act" joint="gripper_z" ctrlrange="-1 1" kp="150"/>
 
     <position name="wrist_flex_act" joint="wrist_flex" ctrlrange="-1 1" kp="15"/>
     <position name="wrist_abduction_act" joint="wrist_abduction" ctrlrange="-1 1" kp="15"/>
+    <position name="wrist_roll_act" joint="wrist_roll" ctrlrange="-1 1" kp="15"/>
+
 
     <position name="thumb_base_act" joint="thumb_base" ctrlrange="0 2" kp="15"/>
     <position name="thumb_roll_act" joint="thumb_roll" ctrlrange="0 2" kp="15"/>

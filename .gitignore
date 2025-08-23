@@ -7,3 +7,11 @@ MUJOCO_LOG.TXT
 #ignore camera calibration files
 cam_data/*
 data/*
+
+.DS_Store
+
+hand_data/*
+
+#venv
+hand_track/*
+
