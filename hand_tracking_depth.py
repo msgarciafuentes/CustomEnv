@@ -1,105 +1,175 @@
+# hand_tracking_depth.py
 import cv2
 import mediapipe as mp
-import pyrealsense2 as rs
-import numpy as np
-import pickle
 import time
+import pickle
+import numpy as np
 
-# === Setup MediaPipe ===
+# -------- Settings --------
+FPS_TARGET = 30
+DURATION_SECONDS = 10
+RES_W, RES_H = 640, 480   # RealSense color stream resolution
+COUNTDOWN_FROM = 3
+OUTPUT_PKL = "hand_record.pkl"
+NEIGHBOR_K = 1  # radius for neighborhood depth median (1 => 3x3)
+# --------------------------
+
+# MediaPipe setup
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=1,
-    min_detection_confidence=0.7,
-    min_tracking_confidence=0.6,
+    min_detection_confidence=0.6,
+    min_tracking_confidence=0.5,
+    model_complexity=1,
 )
 
-# === Setup RealSense pipeline ===
+# RealSense setup
+try:
+    import pyrealsense2 as rs
+except ImportError:
+    raise SystemExit("pyrealsense2 is not installed. Run: pip install pyrealsense2")
+
 pipeline = rs.pipeline()
 config = rs.config()
-config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
-config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
+# Enable BOTH color and depth, same resolution/FPS, and align later
+config.enable_stream(rs.stream.color, RES_W, RES_H, rs.format.bgr8, FPS_TARGET)
+config.enable_stream(rs.stream.depth, RES_W, RES_H, rs.format.z16, FPS_TARGET)
 
-print("Starting RealSense pipeline...")
+# Start streaming and prepare alignment to color
 profile = pipeline.start(config)
-depth_intrinsics = profile.get_stream(rs.stream.depth)\
-    .as_video_stream_profile().get_intrinsics()
+align = rs.align(rs.stream.color)
 
-fps = 30
-duration_seconds = 5
-max_frames = int(fps * duration_seconds)
+def get_depth_meters(depth_frame, u, v, k=NEIGHBOR_K):
+    """
+    Return median depth (meters) around (u,v) over a (2k+1)x(2k+1) window,
+    ignoring zeros/invalid. If none valid, return None.
+    """
+    vals = []
+    w, h = RES_W, RES_H
+    for dv in range(-k, k+1):
+        vv = v + dv
+        if vv < 0 or vv >= h:
+            continue
+        for du in range(-k, k+1):
+            uu = u + du
+            if uu < 0 or uu >= w:
+                continue
+            d = depth_frame.get_distance(uu, vv)  # meters
+            if d and d > 0:
+                vals.append(d)
+    if not vals:
+        return None
+    return float(np.median(vals))
 
 # Countdown
-for countdown in reversed(range(1, 4)):
+for countdown in reversed(range(1, COUNTDOWN_FROM + 1)):
     frames = pipeline.wait_for_frames()
-    color_frame = frames.get_color_frame()
+    aligned = align.process(frames)
+    color_frame = aligned.get_color_frame()
     if not color_frame:
         continue
-    color_image = np.asanyarray(color_frame.get_data())
-    cv2.putText(color_image, f"Starting in {countdown}", (100, 200),
-                cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 5)
-    cv2.imshow("Hand Recorder", color_image)
-    cv2.waitKey(1000)
+    frame = np.asanyarray(color_frame.get_data())
 
+    # Mirror preview (selfie)
+    frame = cv2.flip(frame, 1)
+    cv2.putText(
+        frame, f"Starting in {countdown}",
+        (60, 200), cv2.FONT_HERSHEY_SIMPLEX, 2.5, (0, 0, 255), 5, cv2.LINE_AA
+    )
+    cv2.imshow("Hand Recorder", frame)
+    if cv2.waitKey(1000) & 0xFF == 27:
+        pipeline.stop(); hands.close(); cv2.destroyAllWindows()
+        raise SystemExit("Cancelled.")
+
+# Storage: each frame is either None, or a list of 21 tuples (x, y, z)
+#   x,y in [0,1] (MediaPipe normalized on the *flipped* image)
+#   z = RealSense depth in meters at the corresponding pixel (or None if invalid)
 landmark_data = []
+max_frames = int(FPS_TARGET * DURATION_SECONDS)
+print(f"📹 Recording hand motion for {DURATION_SECONDS} seconds...")
 
-print(f"📹 Recording hand motion for {duration_seconds} seconds...")
+start_time = time.time()
 
-while len(landmark_data) < max_frames:
-    frames = pipeline.wait_for_frames()
-    color_frame = frames.get_color_frame()
-    depth_frame = frames.get_depth_frame()
-    if not color_frame or not depth_frame:
-        continue
+try:
+    while True:
+        frames = pipeline.wait_for_frames()
+        aligned = align.process(frames)
+        color_frame = aligned.get_color_frame()
+        depth_frame = aligned.get_depth_frame()
+        if not color_frame or not depth_frame:
+            continue
 
-    color_image = np.asanyarray(color_frame.get_data())
-    depth_image = np.asanyarray(depth_frame.get_data())
+        frame = np.asanyarray(color_frame.get_data())
 
-    rgb = cv2.cvtColor(color_image, cv2.COLOR_BGR2RGB)
-    results = hands.process(rgb)
+        # Mirror preview for display *and* for mediapipe input
+        frame_flipped = cv2.flip(frame, 1)
 
-    frame_landmarks = None
-    if results.multi_hand_landmarks:
-        hand_landmarks = results.multi_hand_landmarks[0]
-        frame_landmarks = []
+        # MediaPipe expects RGB
+        rgb = cv2.cvtColor(frame_flipped, cv2.COLOR_BGR2RGB)
+        rgb.flags.writeable = False
+        results = hands.process(rgb)
+        rgb.flags.writeable = True
 
-        # Convert 2D MediaPipe landmarks to real-world 3D using depth
-        for lm in hand_landmarks.landmark:
-            u = int(lm.x * color_image.shape[1])
-            v = int(lm.y * color_image.shape[0])
+        frame_landmarks = None
+        if results.multi_hand_landmarks:
+            hand_landmarks = results.multi_hand_landmarks[0]
 
-            # Get depth in meters
-            depth_val = depth_image[v, u] * 0.001  # depth is in mm
+            # Build (x, y, z) per landmark, where z is RealSense depth (meters)
+            frame_landmarks = []
+            for lm in hand_landmarks.landmark:
+                nx, ny = float(lm.x), float(lm.y)
 
-            # Deproject pixel to 3D point (in camera coordinates, meters)
-            X, Y, Z = rs.rs2_deproject_pixel_to_point(
-                depth_intrinsics, [u, v], depth_image[v, u]
+                # Convert normalized coords (on the *flipped* frame) to pixel u,v
+                u_flipped = int(round(nx * (RES_W - 1)))
+                v_flipped = int(round(ny * (RES_H - 1)))
+
+                # Depth frame is aligned to color but *not flipped*, so mirror back:
+                u_src = (RES_W - 1) - u_flipped  # horizontal mirror back
+                v_src = v_flipped
+
+                # Get depth (meters) with neighborhood median to reduce holes
+                z_m = None
+                if 0 <= u_src < RES_W and 0 <= v_src < RES_H:
+                    z_m = get_depth_meters(depth_frame, u_src, v_src, k=NEIGHBOR_K)
+
+                frame_landmarks.append((nx, ny, z_m))
+
+            # Draw landmarks on the *display* frame (flipped)
+            mp_drawing.draw_landmarks(
+                frame_flipped,
+                hand_landmarks,
+                mp_hands.HAND_CONNECTIONS,
+                mp_drawing.DrawingSpec(thickness=2, circle_radius=2),
+                mp_drawing.DrawingSpec(thickness=2),
             )
-            frame_landmarks.append((X, Y, Z))
 
-        # Draw landmarks
-        mp_drawing.draw_landmarks(
-            color_image, hand_landmarks, mp_hands.HAND_CONNECTIONS,
-            mp_drawing.DrawingSpec(color=(0, 255, 0), thickness=2, circle_radius=2),
-            mp_drawing.DrawingSpec(color=(255, 0, 0), thickness=2)
+        landmark_data.append(frame_landmarks)
+
+        # HUD
+        elapsed = time.time() - start_time
+        cv2.putText(
+            frame_flipped,
+            f"Recording... {len(landmark_data)}/{max_frames}",
+            (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA,
         )
+        cv2.imshow("Hand Recorder (RealSense depth z)", frame_flipped)
 
-    landmark_data.append(frame_landmarks)
+        # Stop by ESC or when we reach target frames/time
+        if (cv2.waitKey(1) & 0xFF) == 27:
+            break
+        if len(landmark_data) >= max_frames or elapsed >= DURATION_SECONDS:
+            break
 
-    cv2.putText(color_image, f"Recording... {len(landmark_data)}/{max_frames}",
-                (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
-    cv2.imshow("Hand Recorder 3D", color_image)
+finally:
+    pipeline.stop()
+    hands.close()
+    cv2.destroyAllWindows()
 
-    if cv2.waitKey(1) & 0xFF == 27:
-        break
-
-hands.close()
-pipeline.stop()
-cv2.destroyAllWindows()
-
-# Save 3D landmarks
-with open("hand_record_3d.pkl", "wb") as f:
+# Save landmarks
+with open(OUTPUT_PKL, "wb") as f:
     pickle.dump(landmark_data, f)
 
-print("✅ Done. Saved to hand_record_3d.pkl")
+print(f"✅ Done. Saved to {OUTPUT_PKL}")
+print("   Each landmark is (x, y, z) with z in meters from RealSense.")
