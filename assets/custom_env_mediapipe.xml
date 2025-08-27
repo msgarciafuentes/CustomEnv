@@ -1,0 +1,226 @@
+<mujoco>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3"
+             rgb2=".2 .3 .4" width="300" height="300" mark="none"/>
+    <material name="grid" texture="grid" texrepeat="1 1"
+              texuniform="true" reflectance=".2"/>
+  </asset>
+
+  <worldbody>
+    <light name="light" pos="0 0 2"/>
+    <geom name="floor" type="plane" pos="0 0 -.5" size="4 4 .1" material="grid"/>
+    <camera name="fixed" pos="0 -2 1" xyaxes="1 0 0 0 1 2"/>
+
+    <!-- Table -->
+    <body name="table" pos="0 0 0">
+      <geom name="table_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" rgba="0.6 0.4 0.2 1"/>
+    </body>
+
+    <!-- Wall with hole -->
+    <body name="wall" pos="0 0.55 0.75">
+      <geom name="wall_panel" type="box" size="0.5 0.05 0.25" rgba="0.5 0.5 0.5 1"/>
+      <geom type="cylinder" size="0.03 0.02" pos="0 -0.05 0.05" rgba="0 0 0 1" euler="90 0 0"/>
+    </body>
+
+        <!-- Fiber optic cable on the table with a hanging tail -->
+<body name="fiber_root" pos="0.2 -0.85 0.5">
+  <joint name="fiber_root_free" type="free"/>
+  <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+  <!-- Segment 1 -->
+  <body name="fiber_seg1" pos="0 0.1 0">
+    <joint type="ball" damping="0.05"/>
+    <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+    <!-- Segment 2 -->
+    <body name="fiber_seg2" pos="0 0.1 0">
+      <joint type="ball" damping="0.05"/>
+      <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+      <!-- Segment 3 -->
+      <body name="fiber_seg3" pos="0 0.1 0">
+        <joint type="ball" damping="0.05"/>
+        <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+        <!-- Segment 4 -->
+        <body name="fiber_seg4" pos="0 0.1 0">
+          <joint type="ball" damping="0.05"/>
+          <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+          <!-- Segment 5 -->
+          <body name="fiber_seg5" pos="0 0.1 0">
+            <joint type="ball" damping="0.05"/>
+            <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+            <!-- Segment 6 with fiber tip -->
+            <body name="fiber_seg6" pos="0 0.1 0">
+              <joint type="ball" damping="0.05"/>
+              <geom type="capsule" size="0.005 0.05" fromto="0 0 0 0 0.1 0" rgba="0.8 0.9 1 0.5"/>
+
+              <!-- Glowing tip -->
+              <body name="fiber_tip" pos="0 0.1 0">
+                <geom name="fiber_light" type="sphere" size="0.01" rgba="0 1 1 1"/>
+              </body>
+            </body>
+
+          </body>
+        </body>
+
+      </body>
+    </body>
+  </body>
+</body>
+
+    <!-- hand Gripper -->
+    <body name="gripper_base" pos="0.2 -0.3 0.85">
+      <joint name="gripper_x" type="slide" axis="1 0 0" range="-1 1" damping="5"/>
+      <joint name="gripper_y" type="slide" axis="0 1 0" range="-1 1" damping="5"/>
+      <joint name="gripper_z" type="slide" axis="0 0 1" range="-1 1" damping="5"/>
+      <joint name="wrist_flex" type="hinge" axis="-1 0 0" range="-1 2" damping="1.0"/>
+      <joint name="wrist_abduction" type="hinge" axis="0 1 0" range="-1 1" damping="1.0"/>
+      <joint name="wrist_roll" type="hinge" axis="0 0 1" range="-1 1" damping="1.0"/>
+      <geom type="sphere" size="0.01" mass="0.01" contype="0" conaffinity="0" rgba="0.5 0.5 0.5 1"/>
+
+      <geom name="palm_connector_thumb" type="capsule" fromto="0 0 0  -0.05 0 0.025" size="0.005" rgba="0 0 0 1" mass="0.01"/>
+      <geom name="palm_connector_index" type="capsule" fromto="0 0 0  -0.03 0 0.065" size="0.005" rgba="0 0 0 1" mass="0.01"/>
+      <geom name="index_to_middle" type="capsule" fromto="-0.03 0 0.065  -0.01 0 0.07" size="0.005" rgba="0 0 0 1" mass="0.01"/>
+      <geom name="middle_to_ring" type="capsule" fromto="-0.01 0 0.07  0.01 0 0.05" size="0.005" rgba="0 0 0 1" mass="0.01"/>
+      <geom name="ring_to_pinky" type="capsule" fromto="0.01 0 0.05  0.03 0 0.045" size="0.005" rgba="0 0 0 1" mass="0.01"/>
+      
+      <!-- <geom name="palm_connector_middle" type="capsule" fromto="0 0 0  -0.01 0 0.05" size="0.005" rgba="0 0 0 1" mass="0.01"/> -->
+      <!-- <geom name="palm_connector_ring" type="capsule" fromto="0 0 0  0.01 0 0.05" size="0.005" rgba="0 0 0 1" mass="0.01"/> -->
+      <geom name="palm_connector_pinky" type="capsule" fromto="0 0 0  0.03 0 0.045" size="0.005" rgba="0 0 0 1" mass="0.01"/>
+
+
+      <!-- Thumb Finger -->
+      <body name="thumb_mcp" pos="-0.05 0 0.025">
+        <joint name="thumb_base" type="hinge" axis="0 -1 0" range="0 2.0944" damping="0.1"/>
+        <joint name="thumb_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+        <joint name="thumb_roll" type="hinge" axis="0 0 -1" range="0 2.0944" damping="0.1"/>
+
+        <geom type="capsule" size="0.005 0.03" fromto="0 0 0 -0.0125 0 0.03" rgba="0 0 1 1" mass="0.01" friction="1 0.1 0.1"/>
+
+        <body name="thumb_ip" pos="-0.0125 0 0.03">
+          <joint name="thumb_ip" type="hinge" axis="0 1 0" range="0 2.0944" damping="0.1"/>
+          <geom type="capsule" size="0.005 0.03" fromto="0 0 0  -0.025 0 0.02" rgba="1 0 0 1" mass="0.01" friction="1 0.1 0.1"/>
+        </body>
+      </body>
+
+      <!-- Index Finger -->
+      <body name="index_base" pos="-0.03 0 0.065">
+        <joint name="index_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.5"/>
+        <joint name="index_abd" type="hinge" axis="0 -1 0" range="0 2.0944" damping="1.5"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" rgba="0 1 0 1" mass="0.1"/>
+
+        <body name="index_pip" pos="0 0 0.04">
+          <joint name="index_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.02" size="0.005" rgba="0 0 1 1" mass="0.01"/>
+
+          <body name="index_dip" pos="0 0 0.02">
+            <joint name="index_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+            <geom type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" rgba="1 0 0 1" mass="0.01"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- Middle Finger -->
+      <body name="middle_base" pos="-0.01 0 0.07">
+        <joint name="middle_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" rgba="0 1 0 1" mass="0.01"/>
+
+        <body name="middle_pip" pos="0 0 0.04">
+          <joint name="middle_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.03" size="0.005" rgba="0 0 1 1" mass="0.01"/>
+
+          <body name="middle_dip" pos="0 0 0.03">
+            <joint name="middle_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+            <geom type="capsule" fromto="0 0 0 0 0 0.02" size="0.005" rgba="1 0 0 1" mass="0.01"/>
+          </body>
+        </body>
+      </body>
+      
+      <!-- Ring Finger -->
+      <body name="ring_base" pos="0.01 0 0.05">
+        <joint name="ring_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+        <joint name="ring_abd" type="hinge" axis="0 1 0" range="0 2.0944" damping="1.5"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" rgba="0 1 0 1" mass="0.01"/>
+
+        <body name="ring_pip" pos="0 0 0.04">
+          <joint name="ring_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.03" size="0.005" rgba="0 0 1 1" mass="0.01"/>
+
+          <body name="ring_dip" pos="0 0 0.03">
+            <joint name="ring_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+            <geom type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" rgba="1 0 0 1" mass="0.01"/>
+          </body>
+        </body>
+      </body>
+
+      <!-- Pinky Finger -->
+      <body name="pinky_base" pos="0.03 0 0.045">
+        <joint name="pinky_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+        <joint name="pinky_abd" type="hinge" axis="0 1 0" range="0 2.0944" damping="0.1"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.02" size="0.005" rgba="0 1 0 1" mass="0.01"/>
+
+        <body name="pinky_pip" pos="0 0 0.02">
+          <joint name="pinky_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" rgba="0 0 1 1" mass="0.01"/>
+
+          <body name="pinky_dip" pos="0 0 0.01">
+            <joint name="pinky_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="0.1"/>
+            <geom type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" rgba="1 0 0 1" mass="0.01"/>
+          </body>
+        </body>
+      </body>
+
+    </body>
+
+    <!-- Ball to pick up -->
+    <body name="ball" pos="0.0 0.0 0.65">
+      <joint type="free"/>
+      <geom name="ball_geom" type="sphere" size="0.05" density="500"
+            rgba="0.2 0.4 0.8 1" friction="1 0.005 0.0001"/>
+    </body>
+  
+  </worldbody>
+
+  <actuator>
+    <!-- Gripper actuators -->
+    <!-- <position name="thumb_act" joint="thumb_base" ctrlrange="-0.02 1" kp="500"/> -->
+    <!-- IMU -->
+    <position name="gripper_x_act" joint="gripper_x" ctrlrange="-1 1" kp="150"/>
+    <position name="gripper_y_act" joint="gripper_y" ctrlrange="-1 1" kp="50"/>
+    <position name="gripper_z_act" joint="gripper_z" ctrlrange="-1 1" kp="150"/>
+
+    <position name="wrist_flex_act" joint="wrist_flex" ctrlrange="-1 2" kp="15"/>
+    <position name="wrist_abduction_act" joint="wrist_abduction" ctrlrange="-1 1" kp="15"/>
+    <position name="wrist_roll_act" joint="wrist_roll" ctrlrange="-1 1" kp="15"/>
+
+
+    <position name="thumb_base_act" joint="thumb_base" ctrlrange="0 2" kp="15"/>
+    <position name="thumb_roll_act" joint="thumb_roll" ctrlrange="-1 2" kp="15"/>
+    <position name="thumb_mcp_act" joint="thumb_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="thumb_ip_act" joint="thumb_ip" ctrlrange="0 2" kp="15"/>
+
+    <position name="index_mcp_act" joint="index_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="index_abd_act" joint="index_abd" ctrlrange="0 2" kp="15"/>
+    <position name="index_pip_act" joint="index_pip" ctrlrange="0 2" kp="15"/>
+    <position name="index_dip_act" joint="index_dip" ctrlrange="0 2" kp="15"/>
+
+    <position name="middle_mcp_act" joint="middle_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="middle_pip_act" joint="middle_pip" ctrlrange="0 2" kp="15"/>
+    <position name="middle_dip_act" joint="middle_dip" ctrlrange="0 2" kp="15"/>
+
+    <position name="ring_mcp_act" joint="ring_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="ring_abd_act" joint="ring_abd" ctrlrange="0 2" kp="15"/>
+    <position name="ring_pip_act" joint="ring_pip" ctrlrange="0 2" kp="15"/>
+    <position name="ring_dip_act" joint="ring_dip" ctrlrange="0 2" kp="15"/>
+    
+    <position name="pinky_mcp_act" joint="pinky_mcp" ctrlrange="0 2" kp="15"/>
+    <position name="pinky_abd_act" joint="pinky_abd" ctrlrange="0 2" kp="15"/>
+    <position name="pinky_pip_act" joint="pinky_pip" ctrlrange="0 2" kp="15"/>
+    <position name="pinky_dip_act" joint="pinky_dip" ctrlrange="0 2" kp="15"/>
+  </actuator>
+
+
+</mujoco>

@@ -27,7 +27,7 @@ DEPTH_TO_CTRL_GAIN = 2.0  # meters delta * gain -> [-1,1] clipped
 
 # Build a geometry z from metric depth: z_rel = (z_wrist - z_i) * scale
 # (Closer => more negative, similar to MediaPipe)
-USE_DEPTH_FOR_GEOMETRY = True
+USE_DEPTH_FOR_GEOMETRY = False
 Z_REL_SCALE = 5.0
 
 FLEX_SCALE = 2.0

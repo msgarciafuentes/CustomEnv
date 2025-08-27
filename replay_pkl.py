@@ -1,84 +1,168 @@
+# replay_pkl.py — side-by-side replay of landmarks (left) and recorded video (right)
+
 import cv2
 import mediapipe as mp
 import pickle
 import numpy as np
-from mediapipe.framework.formats.landmark_pb2 import NormalizedLandmarkList  # ✅ Correct import
-import pandas as pd
+from mediapipe.framework.formats.landmark_pb2 import NormalizedLandmarkList
 
-# Parameters
-PKL_FILE = "hand_record.pkl"
-FPS = 30
-SHOW_INDEX = True
+# ---- Config ----
+PKL_FILE = "hand_record.pkl"   # landmarks recorded by hand_tracking_depth.py
+VIDEO_FILE = "hand_record.mp4" # mirrored preview saved during recording
+CANVAS_H = 480                 # height of the hand panel (will match video height if possible)
+CANVAS_W = 640                 # width of the hand panel
+SHOW_INDEX = False             # show landmark indices
+SHOW_Z_M = True                # overlay z (meters) if available
+WINDOW_TITLE = "Hand Replay  |  Recorded Video"
 
-# Load the recorded landmark list
+# ---- Load landmark frames ----
 with open(PKL_FILE, "rb") as f:
     frames = pickle.load(f)
+num_frames = len(frames)
+print(f"Loaded {num_frames} frames from {PKL_FILE}")
 
-print(f"Loaded {len(frames)} frames from {PKL_FILE}")
+# Determine tuple width (x,y,z or x,y,z1,z2)
+def detect_tuple_width(frames_list):
+    for item in frames_list:
+        if item:
+            for lm in item:
+                if lm is not None:
+                    return len(lm)
+    return 3  # default
+TUPLE_W = detect_tuple_width(frames)
 
-# Build DataFrame for Excel export
-rows = []
-for frame_idx, landmarks in enumerate(frames):
-    row = [frame_idx]  # Start with frame number
-    if landmarks:
-        # Flatten (x, y, z) for all 21 landmarks
-        for lm in landmarks:
-            row.extend([lm[0], lm[1], lm[2]])
-    else:
-        # Pad with NaNs if no data
-        row.extend([np.nan] * 63)
-    rows.append(row)
+# ---- Video setup ----
+cap = cv2.VideoCapture(VIDEO_FILE)
+if not cap.isOpened():
+    print(f"⚠️ Could not open video '{VIDEO_FILE}'. Proceeding with landmarks only.")
+video_fps = cap.get(cv2.CAP_PROP_FPS) or 30.0
+video_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or CANVAS_W)
+video_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or CANVAS_H)
 
-# Column names: Frame, L0_x, L0_y, L0_z, ..., L20_x, L20_y, L20_z
-columns = ['Frame']
-for i in range(21):
-    columns += [f"L{i}_x", f"L{i}_y", f"L{i}_z"]
+# If we have a video size, match the hand canvas height to it for clean side-by-side
+if video_h > 0:
+    CANVAS_H = video_h
+# Keep canvas width proportional-ish (you can tweak if you prefer)
+CANVAS_W = max(320, min(800, int(CANVAS_H * (640/480))))
 
-# Create and save DataFrame
-df = pd.DataFrame(rows, columns=columns)
-df.to_csv("landmark_data.csv", index=False)
-
-print("📁 Saved Excel file: landmark_data.csv")
-
-# MediaPipe drawing
+# ---- MediaPipe drawing setup ----
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 
-# Create a blank white canvas
-canvas_height, canvas_width = 480, 640
-canvas = lambda: 255 * np.ones((canvas_height, canvas_width, 3), dtype=np.uint8)
+def blank_canvas():
+    return 255 * np.ones((CANVAS_H, CANVAS_W, 3), dtype=np.uint8)
 
-# Replay loop
-for idx, landmarks in enumerate(frames):
-    frame = canvas()
+def draw_landmarks_panel(landmarks_tuple_list, frame_idx, total_frames):
+    panel = blank_canvas()
 
-    if landmarks is not None:
-        # Build landmark list from saved coordinates
-        hand_landmarks = NormalizedLandmarkList()
-        for x, y, z in landmarks:
-            hand_landmarks.landmark.add(x=x, y=y, z=z)
+    if landmarks_tuple_list:
+        # Build a NormalizedLandmarkList for drawing
+        nl = NormalizedLandmarkList()
+        for lm in landmarks_tuple_list:
+            if lm is None:
+                nl.landmark.add(x=0.0, y=0.0, z=0.0)
+                continue
+            if TUPLE_W == 4:
+                x, y, z1, z2 = lm
+                z_draw = float(z1 if z1 is not None else 0.0)
+                z_meters = z2
+            else:  # TUPLE_W == 3
+                x, y, z = lm
+                z_draw = float(z if z is not None else 0.0)
+                z_meters = z
+
+            nl.landmark.add(x=float(x), y=float(y), z=z_draw)
 
         # Draw skeleton
         mp_drawing.draw_landmarks(
-            frame,
-            hand_landmarks,
+            panel,
+            nl,
             mp_hands.HAND_CONNECTIONS,
-            mp_drawing.DrawingSpec(color=(0, 255, 0), thickness=2),
-            mp_drawing.DrawingSpec(color=(255, 0, 0), thickness=2)
+            mp_drawing.DrawingSpec(thickness=2, circle_radius=2),
+            mp_drawing.DrawingSpec(thickness=2)
         )
 
-        # Draw landmark indices
-        if SHOW_INDEX:
-            for i, (x, y, _) in enumerate(landmarks):
-                cx, cy = int(x * canvas_width), int(y * canvas_height)
-                cv2.putText(frame, str(i), (cx, cy), cv2.FONT_HERSHEY_SIMPLEX,
-                            0.4, (0, 0, 0), 1, cv2.LINE_AA)
+        # Optional indices / depth text
+        if SHOW_INDEX or SHOW_Z_M:
+            for i, lm in enumerate(landmarks_tuple_list):
+                if lm is None:
+                    continue
+                if TUPLE_W == 4:
+                    x, y, z1, z2 = lm
+                    z_m = z2
+                else:
+                    x, y, z = lm
+                    z_m = z
+                cx, cy = int(x * CANVAS_W), int(y * CANVAS_H)
+                if SHOW_INDEX:
+                    cv2.putText(panel, str(i), (cx, cy),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 0, 0), 1, cv2.LINE_AA)
+                if SHOW_Z_M and (z_m is not None) and not (isinstance(z_m, float) and np.isnan(z_m)):
+                    cv2.putText(panel, f"{float(z_m):.2f} m", (cx, cy - 12),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.40, (40, 40, 40), 1, cv2.LINE_AA)
 
-    cv2.putText(frame, f"Frame {idx+1}/{len(frames)}", (10, 25),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+    # HUD
+    cv2.putText(panel, f"Frame {frame_idx+1}/{total_frames}", (10, 25),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 200), 2)
+    return panel
 
-    cv2.imshow("Hand Replay", frame)
-    if cv2.waitKey(int(1000 / FPS)) & 0xFF == 27:
+def pad_to_height(img, h):
+    if img.shape[0] == h:
+        return img
+    scale = h / img.shape[0]
+    new_w = int(img.shape[1] * scale)
+    return cv2.resize(img, (new_w, h))
+
+def pad_right_to(img, width):
+    if img.shape[1] >= width:
+        return img
+    pad = np.full((img.shape[0], width - img.shape[1], 3), 255, dtype=np.uint8)
+    return np.hstack([img, pad])
+
+# ---- Replay loop ----
+frame_idx = 0
+while True:
+    # 1) Build the hand panel from PKL
+    lm_list = frames[frame_idx] if frame_idx < num_frames else None
+    hand_panel = draw_landmarks_panel(lm_list, frame_idx, num_frames)
+
+    # 2) Read next video frame (or placeholder)
+    if cap.isOpened():
+        ret, video_frame = cap.read()
+        if not ret:
+            # video ended — show a placeholder
+            video_frame = 255 * np.ones((CANVAS_H, video_w if video_w > 0 else CANVAS_W, 3), dtype=np.uint8)
+            cv2.putText(video_frame, "<video ended>", (20, 40),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    else:
+        video_frame = 255 * np.ones((CANVAS_H, CANVAS_W, 3), dtype=np.uint8)
+        cv2.putText(video_frame, "<no video>", (20, 40),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+    # 3) Normalize heights and widths for clean hstack
+    hand_panel = pad_to_height(hand_panel, CANVAS_H)
+    video_frame = pad_to_height(video_frame, CANVAS_H)
+
+    max_w = max(hand_panel.shape[1], video_frame.shape[1])
+    hand_panel_p = pad_right_to(hand_panel, max_w)
+    video_panel_p = pad_right_to(video_frame, max_w)
+
+    combined = np.hstack([hand_panel_p, video_panel_p])
+
+    # 4) Show
+    cv2.imshow(WINDOW_TITLE, combined)
+    key = cv2.waitKey(int(1000 / video_fps)) & 0xFF
+    if key == 27:  # ESC
         break
 
+    # 5) Advance; stop when both sources are done
+    frame_idx += 1
+    video_done = not cap.isOpened() or \
+                 (cap.get(cv2.CAP_PROP_POS_FRAMES) >= cap.get(cv2.CAP_PROP_FRAME_COUNT) > 0)
+    if frame_idx >= num_frames and video_done:
+        break
+
+# ---- Cleanup ----
+cap.release()
 cv2.destroyAllWindows()
+print("Replay finished.")

@@ -12,6 +12,9 @@ RES_W, RES_H = 640, 480   # RealSense color stream resolution
 COUNTDOWN_FROM = 3
 OUTPUT_PKL = "hand_record.pkl"
 NEIGHBOR_K = 1  # radius for neighborhood depth median (1 => 3x3)
+
+# --- NEW: video output filename ---
+OUTPUT_VIDEO = "hand_record.mp4"
 # --------------------------
 
 # MediaPipe setup
@@ -40,6 +43,13 @@ config.enable_stream(rs.stream.depth, RES_W, RES_H, rs.format.z16, FPS_TARGET)
 # Start streaming and prepare alignment to color
 profile = pipeline.start(config)
 align = rs.align(rs.stream.color)
+
+# --- NEW: Prepare video writer (we record the MIRRORED preview to match landmarks) ---
+fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+video_writer = cv2.VideoWriter(OUTPUT_VIDEO, fourcc, float(FPS_TARGET), (RES_W, RES_H))
+if not video_writer.isOpened():
+    pipeline.stop(); hands.close()
+    raise SystemExit("Failed to open VideoWriter. Check codecs/permissions.")
 
 def get_depth_meters(depth_frame, u, v, k=NEIGHBOR_K):
     """
@@ -73,14 +83,18 @@ for countdown in reversed(range(1, COUNTDOWN_FROM + 1)):
     frame = np.asanyarray(color_frame.get_data())
 
     # Mirror preview (selfie)
-    frame = cv2.flip(frame, 1)
+    frame_flipped = cv2.flip(frame, 1)
     cv2.putText(
-        frame, f"Starting in {countdown}",
+        frame_flipped, f"Starting in {countdown}",
         (60, 200), cv2.FONT_HERSHEY_SIMPLEX, 2.5, (0, 0, 255), 5, cv2.LINE_AA
     )
-    cv2.imshow("Hand Recorder", frame)
+
+    # --- NEW: write countdown frames too (optional but nice) ---
+    video_writer.write(frame_flipped)
+
+    cv2.imshow("Hand Recorder", frame_flipped)
     if cv2.waitKey(1000) & 0xFF == 27:
-        pipeline.stop(); hands.close(); cv2.destroyAllWindows()
+        pipeline.stop(); hands.close(); cv2.destroyAllWindows(); video_writer.release()
         raise SystemExit("Cancelled.")
 
 # Storage: each frame is either None, or a list of 21 tuples (x, y, z)
@@ -136,7 +150,7 @@ try:
 
                 frame_landmarks.append((nx, ny, z_m))
 
-            # Draw landmarks on the *display* frame (flipped)
+            # Draw landmarks on the *display/recorded* frame (flipped)
             mp_drawing.draw_landmarks(
                 frame_flipped,
                 hand_landmarks,
@@ -154,6 +168,10 @@ try:
             f"Recording... {len(landmark_data)}/{max_frames}",
             (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA,
         )
+
+        # --- NEW: Write the mirrored preview to video ---
+        video_writer.write(frame_flipped)
+
         cv2.imshow("Hand Recorder (RealSense depth z)", frame_flipped)
 
         # Stop by ESC or when we reach target frames/time
@@ -166,10 +184,13 @@ finally:
     pipeline.stop()
     hands.close()
     cv2.destroyAllWindows()
+    # --- NEW: release video writer ---
+    video_writer.release()
 
 # Save landmarks
 with open(OUTPUT_PKL, "wb") as f:
     pickle.dump(landmark_data, f)
 
-print(f"✅ Done. Saved to {OUTPUT_PKL}")
+print(f"✅ Done. Saved landmarks to {OUTPUT_PKL}")
+print(f"✅ Saved video to {OUTPUT_VIDEO} ({RES_W}x{RES_H} @ {FPS_TARGET} FPS)")
 print("   Each landmark is (x, y, z) with z in meters from RealSense.")
