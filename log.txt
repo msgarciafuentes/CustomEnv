@@ -1,0 +1,1478 @@
+✅ Loaded 294 frames from recordings/hand_getball.pkl
+✅ IMU loaded (2853 samples). After baseline & gains:
+   yaw(deg) range   = (-17.159999999999975, 52.00000000000002)
+   pitch(deg) range = (-55.55, 27.07)
+   roll(deg) range  = (-14.729999999999986, 101.99000000000001)
+🎬 Replaying hand motion...
+Frame 0: Wrist x=0.7517, y=0.6784, z_geom=0.0000, z_m=0.5610
+value is 0.7516876459121704 and ctrl_val is 0.0
+value is 0.6784013509750366 and ctrl_val is 0.0
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 1: Wrist x=0.7528, y=0.6806, z_geom=0.0000, z_m=0.5600
+value is 0.7527905702590942 and ctrl_val is 0.0006617546081542969
+value is 0.6806017160415649 and ctrl_val is 0.001320219039916992
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 2: Wrist x=0.7547, y=0.6808, z_geom=0.0000, z_m=0.5600
+value is 0.7546880841255188 and ctrl_val is 0.001800262928009033
+value is 0.6807506680488586 and ctrl_val is 0.0014095902442932129
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 3: Wrist x=0.7529, y=0.6794, z_geom=0.0000, z_m=0.5600
+value is 0.7529235482215881 and ctrl_val is 0.0007415413856506348
+value is 0.6794113516807556 and ctrl_val is 0.0006060004234313965
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 4: Wrist x=0.7539, y=0.6826, z_geom=0.0000, z_m=0.5600
+value is 0.753916323184967 and ctrl_val is 0.0013372063636779784
+value is 0.6825587153434753 and ctrl_val is 0.0024944186210632325
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 5: Wrist x=0.7544, y=0.6840, z_geom=0.0000, z_m=0.5600
+value is 0.7543990612030029 and ctrl_val is 0.0016268491744995117
+value is 0.6839515566825867 and ctrl_val is 0.003330123424530029
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 6: Wrist x=0.7544, y=0.6833, z_geom=0.0000, z_m=0.5590
+value is 0.7543826699256897 and ctrl_val is 0.0016170144081115723
+value is 0.6832846403121948 and ctrl_val is 0.0029299736022949216
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 7: Wrist x=0.7551, y=0.6821, z_geom=0.0000, z_m=0.5600
+value is 0.7550768256187439 and ctrl_val is 0.0020335078239440917
+value is 0.6820926666259766 and ctrl_val is 0.002214789390563965
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 8: Wrist x=0.7530, y=0.6819, z_geom=0.0000, z_m=0.5600
+value is 0.7529568672180176 and ctrl_val is 0.0007615327835083008
+value is 0.681921660900116 and ctrl_val is 0.0021121859550476073
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 9: Wrist x=0.7544, y=0.6811, z_geom=0.0000, z_m=0.5590
+value is 0.7544257640838623 and ctrl_val is 0.0016428709030151367
+value is 0.6811351180076599 and ctrl_val is 0.0016402602195739746
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 10: Wrist x=0.7548, y=0.6821, z_geom=0.0000, z_m=0.5600
+value is 0.7547605633735657 and ctrl_val is 0.0018437504768371582
+value is 0.6820967197418213 and ctrl_val is 0.0022172212600708005
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 11: Wrist x=0.7540, y=0.6825, z_geom=0.0000, z_m=0.5590
+value is 0.7540435791015625 and ctrl_val is 0.0014135599136352538
+value is 0.6825267672538757 and ctrl_val is 0.0024752497673034665
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 12: Wrist x=0.7552, y=0.6850, z_geom=0.0000, z_m=0.5600
+value is 0.7552186846733093 and ctrl_val is 0.0021186232566833495
+value is 0.6850006580352783 and ctrl_val is 0.00395958423614502
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 13: Wrist x=0.7543, y=0.6841, z_geom=0.0000, z_m=0.5600
+value is 0.7543264627456665 and ctrl_val is 0.0015832901000976563
+value is 0.684072732925415 and ctrl_val is 0.0034028291702270508
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 14: Wrist x=0.7531, y=0.6841, z_geom=0.0000, z_m=0.5600
+value is 0.7531459927558899 and ctrl_val is 0.0008750081062316894
+value is 0.6840857863426208 and ctrl_val is 0.003410661220550537
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 15: Wrist x=0.7550, y=0.6856, z_geom=0.0000, z_m=0.5590
+value is 0.7550268769264221 and ctrl_val is 0.002003538608551025
+value is 0.6856318712234497 and ctrl_val is 0.004338312149047852
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 16: Wrist x=0.7557, y=0.6846, z_geom=0.0000, z_m=0.5590
+value is 0.7556573748588562 and ctrl_val is 0.0023818373680114745
+value is 0.6845525503158569 and ctrl_val is 0.0036907196044921875
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 17: Wrist x=0.7570, y=0.6849, z_geom=0.0000, z_m=0.5590
+value is 0.7569885849952698 and ctrl_val is 0.003180563449859619
+value is 0.684853732585907 and ctrl_val is 0.0038714289665222165
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 18: Wrist x=0.7548, y=0.6848, z_geom=0.0000, z_m=0.5600
+value is 0.7547784447669983 and ctrl_val is 0.0018544793128967285
+value is 0.6848310828208923 and ctrl_val is 0.0038578391075134275
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 19: Wrist x=0.7541, y=0.6848, z_geom=0.0000, z_m=0.5600
+value is 0.7541441917419434 and ctrl_val is 0.0014739274978637694
+value is 0.6847886443138123 and ctrl_val is 0.0038323760032653808
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 20: Wrist x=0.7546, y=0.6847, z_geom=0.0000, z_m=0.5600
+value is 0.7545996308326721 and ctrl_val is 0.0017471909523010254
+value is 0.6847474575042725 and ctrl_val is 0.003807663917541504
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 21: Wrist x=0.7547, y=0.6842, z_geom=0.0000, z_m=0.5590
+value is 0.7547095417976379 and ctrl_val is 0.0018131375312805174
+value is 0.6842479705810547 and ctrl_val is 0.00350797176361084
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 22: Wrist x=0.7575, y=0.6857, z_geom=0.0000, z_m=0.5580
+value is 0.7574712634086609 and ctrl_val is 0.003470170497894287
+value is 0.6857155561447144 and ctrl_val is 0.0043885231018066405
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 23: Wrist x=0.7586, y=0.6876, z_geom=0.0000, z_m=0.5580
+value is 0.7585963606834412 and ctrl_val is 0.004145228862762451
+value is 0.6876236200332642 and ctrl_val is 0.005533361434936523
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 24: Wrist x=0.7555, y=0.6849, z_geom=0.0000, z_m=0.5590
+value is 0.7554513812065125 and ctrl_val is 0.0022582411766052246
+value is 0.6848742365837097 and ctrl_val is 0.0038837313652038572
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 25: Wrist x=0.7561, y=0.6845, z_geom=0.0000, z_m=0.5590
+value is 0.7561244368553162 and ctrl_val is 0.002662074565887451
+value is 0.6845149993896484 and ctrl_val is 0.00366818904876709
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 26: Wrist x=0.7559, y=0.6865, z_geom=0.0000, z_m=0.5580
+value is 0.7558897137641907 and ctrl_val is 0.0025212407112121583
+value is 0.6865361332893372 and ctrl_val is 0.004880869388580322
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 27: Wrist x=0.7564, y=0.6852, z_geom=0.0000, z_m=0.5590
+value is 0.756393313407898 and ctrl_val is 0.002823400497436523
+value is 0.685232400894165 and ctrl_val is 0.00409862995147705
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 28: Wrist x=0.7556, y=0.6855, z_geom=0.0000, z_m=0.5580
+value is 0.7555934190750122 and ctrl_val is 0.002343463897705078
+value is 0.6854938864707947 and ctrl_val is 0.004255521297454834
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 29: Wrist x=0.7572, y=0.6861, z_geom=0.0000, z_m=0.5570
+value is 0.7572128176689148 and ctrl_val is 0.0033151030540466307
+value is 0.6861349940299988 and ctrl_val is 0.004640185832977295
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 30: Wrist x=0.7567, y=0.6882, z_geom=0.0000, z_m=0.5570
+value is 0.7567325830459595 and ctrl_val is 0.0030269622802734375
+value is 0.688246488571167 and ctrl_val is 0.005907082557678222
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 31: Wrist x=0.7570, y=0.6867, z_geom=0.0000, z_m=0.5580
+value is 0.7570069432258606 and ctrl_val is 0.003191578388214111
+value is 0.6866715550422668 and ctrl_val is 0.004962122440338134
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 32: Wrist x=0.7533, y=0.6887, z_geom=0.0000, z_m=0.5590
+value is 0.7532774806022644 and ctrl_val is 0.0009539008140563964
+value is 0.6886746883392334 and ctrl_val is 0.006164002418518067
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 33: Wrist x=0.7563, y=0.6886, z_geom=0.0000, z_m=0.5580
+value is 0.7563300132751465 and ctrl_val is 0.0027854204177856444
+value is 0.6885836124420166 and ctrl_val is 0.006109356880187988
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 34: Wrist x=0.7500, y=0.6889, z_geom=0.0000, z_m=0.5590
+value is 0.7499933838844299 and ctrl_val is -0.0010165572166442871
+value is 0.6888660192489624 and ctrl_val is 0.006278800964355469
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 35: Wrist x=0.7520, y=0.6896, z_geom=0.0000, z_m=0.5560
+value is 0.7519813179969788 and ctrl_val is 0.00017620325088500975
+value is 0.68962162733078 and ctrl_val is 0.006732165813446045
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 36: Wrist x=0.7488, y=0.6878, z_geom=0.0000, z_m=0.5580
+value is 0.7487779259681702 and ctrl_val is -0.0017458319664001465
+value is 0.6877729892730713 and ctrl_val is 0.005622982978820801
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 37: Wrist x=0.7469, y=0.6875, z_geom=0.0000, z_m=0.5580
+value is 0.7469092011451721 and ctrl_val is -0.0028670668601989747
+value is 0.6874828338623047 and ctrl_val is 0.00544888973236084
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 38: Wrist x=0.7465, y=0.6878, z_geom=0.0000, z_m=0.5570
+value is 0.7464886903762817 and ctrl_val is -0.003119373321533203
+value is 0.6878459453582764 and ctrl_val is 0.005666756629943847
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 39: Wrist x=0.7414, y=0.6887, z_geom=0.0000, z_m=0.5570
+value is 0.74141925573349 and ctrl_val is -0.006161034107208252
+value is 0.688738226890564 and ctrl_val is 0.006202125549316406
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 40: Wrist x=0.7395, y=0.6874, z_geom=0.0000, z_m=0.5560
+value is 0.7394949793815613 and ctrl_val is -0.007315599918365478
+value is 0.6873791813850403 and ctrl_val is 0.0053866982460021974
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 41: Wrist x=0.7353, y=0.6884, z_geom=0.0000, z_m=0.5570
+value is 0.7352581024169922 and ctrl_val is -0.009857726097106933
+value is 0.6884334683418274 and ctrl_val is 0.006019270420074462
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 42: Wrist x=0.7333, y=0.6860, z_geom=0.0000, z_m=0.5560
+value is 0.733346700668335 and ctrl_val is -0.01100456714630127
+value is 0.6860083341598511 and ctrl_val is 0.0045641899108886715
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 43: Wrist x=0.7263, y=0.6848, z_geom=0.0000, z_m=0.5580
+value is 0.7262830138206482 and ctrl_val is -0.01524277925491333
+value is 0.6847580671310425 and ctrl_val is 0.0038140296936035154
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 44: Wrist x=0.7247, y=0.6845, z_geom=0.0000, z_m=0.5580
+value is 0.7246630191802979 and ctrl_val is -0.016214776039123534
+value is 0.6845097541809082 and ctrl_val is 0.003665041923522949
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 45: Wrist x=0.7207, y=0.6844, z_geom=0.0000, z_m=0.5560
+value is 0.7207170128822327 and ctrl_val is -0.018582379817962645
+value is 0.6844390034675598 and ctrl_val is 0.003622591495513916
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 46: Wrist x=0.7149, y=0.6830, z_geom=0.0000, z_m=0.5570
+value is 0.7149484753608704 and ctrl_val is -0.022043502330780028
+value is 0.6830201148986816 and ctrl_val is 0.0027712583541870117
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 47: Wrist x=0.7110, y=0.6837, z_geom=0.0000, z_m=0.5540
+value is 0.7110287547111511 and ctrl_val is -0.02439533472061157
+value is 0.6836979389190674 and ctrl_val is 0.003177952766418457
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 48: Wrist x=0.7052, y=0.6828, z_geom=0.0000, z_m=0.5560
+value is 0.7051708102226257 and ctrl_val is -0.027910101413726806
+value is 0.6828216314315796 and ctrl_val is 0.0026521682739257812
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 49: Wrist x=0.6973, y=0.6801, z_geom=0.0000, z_m=0.5570
+value is 0.6972643136978149 and ctrl_val is -0.03265399932861328
+value is 0.6801124811172485 and ctrl_val is 0.0010266780853271484
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 50: Wrist x=0.6889, y=0.6805, z_geom=0.0000, z_m=0.5590
+value is 0.6888560652732849 and ctrl_val is -0.0376989483833313
+value is 0.6804503798484802 and ctrl_val is 0.0012294173240661622
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 51: Wrist x=0.6808, y=0.6793, z_geom=0.0000, z_m=0.5570
+value is 0.680790901184082 and ctrl_val is -0.04253804683685303
+value is 0.679333508014679 and ctrl_val is 0.0005592942237854004
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 52: Wrist x=0.6764, y=0.6800, z_geom=0.0000, z_m=0.5560
+value is 0.6764284372329712 and ctrl_val is -0.04515552520751953
+value is 0.6800171136856079 and ctrl_val is 0.0009694576263427734
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 53: Wrist x=0.6646, y=0.6777, z_geom=0.0000, z_m=0.5590
+value is 0.6646361947059631 and ctrl_val is -0.052230870723724364
+value is 0.6777127981185913 and ctrl_val is -0.0004131317138671875
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 54: Wrist x=0.6551, y=0.6757, z_geom=0.0000, z_m=0.5570
+value is 0.6550799012184143 and ctrl_val is -0.05796464681625366
+value is 0.6756905317306519 and ctrl_val is -0.0016264915466308594
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 55: Wrist x=0.6489, y=0.6760, z_geom=0.0000, z_m=0.5570
+value is 0.6489198803901672 and ctrl_val is -0.0616606593132019
+value is 0.6759506464004517 and ctrl_val is -0.0014704227447509765
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 56: Wrist x=0.6379, y=0.6727, z_geom=0.0000, z_m=0.5570
+value is 0.6379170417785645 and ctrl_val is -0.06826236248016357
+value is 0.6726677417755127 and ctrl_val is -0.0034401655197143556
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 57: Wrist x=0.6292, y=0.6715, z_geom=0.0000, z_m=0.5560
+value is 0.6292498111724854 and ctrl_val is -0.07346270084381103
+value is 0.6714737415313721 and ctrl_val is -0.00415656566619873
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 58: Wrist x=0.6205, y=0.6680, z_geom=0.0000, z_m=0.5580
+value is 0.6204761862754822 and ctrl_val is -0.07872687578201294
+value is 0.6680060625076294 and ctrl_val is -0.006237173080444336
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 59: Wrist x=0.6123, y=0.6689, z_geom=0.0000, z_m=0.5590
+value is 0.6123154163360596 and ctrl_val is -0.0836233377456665
+value is 0.668932318687439 and ctrl_val is -0.005681419372558593
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 60: Wrist x=0.6020, y=0.6695, z_geom=0.0000, z_m=0.5590
+value is 0.6019694209098816 and ctrl_val is -0.08983093500137329
+value is 0.6695278882980347 and ctrl_val is -0.005324077606201172
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 61: Wrist x=0.5924, y=0.6705, z_geom=0.0000, z_m=0.5610
+value is 0.5924235582351685 and ctrl_val is -0.09555845260620117
+value is 0.6704931259155273 and ctrl_val is -0.004744935035705567
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 62: Wrist x=0.5862, y=0.6679, z_geom=0.0000, z_m=0.5600
+value is 0.5861510038375854 and ctrl_val is -0.09932198524475097
+value is 0.6678817272186279 and ctrl_val is -0.006311774253845215
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 63: Wrist x=0.5801, y=0.6699, z_geom=0.0000, z_m=0.5590
+value is 0.5800774693489075 and ctrl_val is -0.10296610593795776
+value is 0.6698858141899109 and ctrl_val is -0.005109322071075439
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 64: Wrist x=0.5733, y=0.6715, z_geom=0.0000, z_m=0.5600
+value is 0.5732553601264954 and ctrl_val is -0.10705937147140503
+value is 0.6715331673622131 and ctrl_val is -0.0041209101676940914
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 65: Wrist x=0.5628, y=0.6695, z_geom=0.0000, z_m=0.5600
+value is 0.5627795457839966 and ctrl_val is -0.1133448600769043
+value is 0.6694563031196594 and ctrl_val is -0.0053670287132263185
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 66: Wrist x=0.5554, y=0.6688, z_geom=0.0000, z_m=0.5590
+value is 0.5553656816482544 and ctrl_val is -0.1177931785583496
+value is 0.6688092947006226 and ctrl_val is -0.005755233764648438
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 67: Wrist x=0.5504, y=0.6642, z_geom=0.0000, z_m=0.5580
+value is 0.5503720641136169 and ctrl_val is -0.12078934907913208
+value is 0.6641882061958313 and ctrl_val is -0.008527886867523192
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 68: Wrist x=0.5389, y=0.6670, z_geom=0.0000, z_m=0.5590
+value is 0.5389010906219482 and ctrl_val is -0.1276719331741333
+value is 0.666993260383606 and ctrl_val is -0.006844854354858398
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 69: Wrist x=0.5342, y=0.6703, z_geom=0.0000, z_m=0.5580
+value is 0.5341885685920715 and ctrl_val is -0.13049944639205932
+value is 0.6702976822853088 and ctrl_val is -0.00486220121383667
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 70: Wrist x=0.5297, y=0.6700, z_geom=0.0000, z_m=0.5600
+value is 0.5297242999076843 and ctrl_val is -0.13317800760269163
+value is 0.670017659664154 and ctrl_val is -0.005030214786529541
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 71: Wrist x=0.5245, y=0.6701, z_geom=0.0000, z_m=0.5590
+value is 0.5244934558868408 and ctrl_val is -0.13631651401519776
+value is 0.6700911521911621 and ctrl_val is -0.004986119270324707
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 72: Wrist x=0.5224, y=0.6712, z_geom=0.0000, z_m=0.5580
+value is 0.5224227905273438 and ctrl_val is -0.137558913230896
+value is 0.6711549162864685 and ctrl_val is -0.004347860813140869
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 73: Wrist x=0.5124, y=0.6754, z_geom=0.0000, z_m=0.5600
+value is 0.5124385952949524 and ctrl_val is -0.1435494303703308
+value is 0.6753771305084229 and ctrl_val is -0.0018145322799682617
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 74: Wrist x=0.5051, y=0.6755, z_geom=0.0000, z_m=0.5620
+value is 0.5051000118255615 and ctrl_val is -0.14795258045196533
+value is 0.6755375266075134 and ctrl_val is -0.001718294620513916
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 75: Wrist x=0.5025, y=0.6766, z_geom=0.0000, z_m=0.5620
+value is 0.502516508102417 and ctrl_val is -0.14950268268585204
+value is 0.6766111850738525 and ctrl_val is -0.001074099540710449
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 76: Wrist x=0.4979, y=0.6733, z_geom=0.0000, z_m=0.5620
+value is 0.4979099929332733 and ctrl_val is -0.15226659178733826
+value is 0.6733098030090332 and ctrl_val is -0.0030549287796020506
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 77: Wrist x=0.4955, y=0.6764, z_geom=0.0000, z_m=0.5630
+value is 0.49549758434295654 and ctrl_val is -0.15371403694152833
+value is 0.6764179468154907 and ctrl_val is -0.001190042495727539
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 78: Wrist x=0.4964, y=0.6715, z_geom=0.0000, z_m=0.5620
+value is 0.49641457200050354 and ctrl_val is -0.15316384434700012
+value is 0.6714971661567688 and ctrl_val is -0.0041425108909606935
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 79: Wrist x=0.4943, y=0.6752, z_geom=0.0000, z_m=0.5610
+value is 0.4943183660507202 and ctrl_val is -0.15442156791687012
+value is 0.6752172708511353 and ctrl_val is -0.0019104480743408203
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 80: Wrist x=0.4882, y=0.6731, z_geom=0.0000, z_m=0.5610
+value is 0.4882221221923828 and ctrl_val is -0.15807931423187255
+value is 0.6730673313140869 and ctrl_val is -0.0032004117965698242
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 81: Wrist x=0.4860, y=0.6739, z_geom=0.0000, z_m=0.5620
+value is 0.48597902059555054 and ctrl_val is -0.15942517518997193
+value is 0.6739280223846436 and ctrl_val is -0.00268399715423584
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 82: Wrist x=0.4845, y=0.6695, z_geom=0.0000, z_m=0.5610
+value is 0.4845167398452759 and ctrl_val is -0.1603025436401367
+value is 0.6695021390914917 and ctrl_val is -0.005339527130126953
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 83: Wrist x=0.4811, y=0.6733, z_geom=0.0000, z_m=0.5630
+value is 0.481069952249527 and ctrl_val is -0.16237061619758605
+value is 0.6733061671257019 and ctrl_val is -0.00305711030960083
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 84: Wrist x=0.4767, y=0.6757, z_geom=0.0000, z_m=0.5640
+value is 0.47670412063598633 and ctrl_val is -0.16499011516571044
+value is 0.6757068634033203 and ctrl_val is -0.001616692543029785
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 85: Wrist x=0.4743, y=0.6740, z_geom=0.0000, z_m=0.5630
+value is 0.47433000802993774 and ctrl_val is -0.1664145827293396
+value is 0.6740337014198303 and ctrl_val is -0.002620589733123779
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 86: Wrist x=0.4707, y=0.6767, z_geom=0.0000, z_m=0.5650
+value is 0.47073012590408325 and ctrl_val is -0.1685745120048523
+value is 0.6767315864562988 and ctrl_val is -0.0010018587112426757
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 87: Wrist x=0.4657, y=0.6732, z_geom=0.0000, z_m=0.5620
+value is 0.4657284617424011 and ctrl_val is -0.17157551050186157
+value is 0.6731752157211304 and ctrl_val is -0.00313568115234375
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 88: Wrist x=0.4587, y=0.6738, z_geom=0.0000, z_m=0.5650
+value is 0.4586617946624756 and ctrl_val is -0.17581551074981688
+value is 0.673844039440155 and ctrl_val is -0.002734386920928955
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 89: Wrist x=0.4593, y=0.6742, z_geom=0.0000, z_m=0.5640
+value is 0.4593379497528076 and ctrl_val is -0.17540981769561767
+value is 0.6742008328437805 and ctrl_val is -0.002520310878753662
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 90: Wrist x=0.4577, y=0.6733, z_geom=0.0000, z_m=0.5670
+value is 0.45769003033638 and ctrl_val is -0.17639856934547424
+value is 0.6733413338661194 and ctrl_val is -0.0030360102653503415
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 91: Wrist x=0.4563, y=0.6725, z_geom=0.0000, z_m=0.5660
+value is 0.45628926157951355 and ctrl_val is -0.17723903059959412
+value is 0.6725203990936279 and ctrl_val is -0.0035285711288452148
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 92: Wrist x=0.4533, y=0.6711, z_geom=0.0000, z_m=0.5660
+value is 0.4533058702945709 and ctrl_val is -0.17902906537055968
+value is 0.6710975170135498 and ctrl_val is -0.00438230037689209
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 93: Wrist x=0.4520, y=0.6691, z_geom=0.0000, z_m=0.5670
+value is 0.4519902765750885 and ctrl_val is -0.17981842160224915
+value is 0.6690785884857178 and ctrl_val is -0.005593657493591309
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 94: Wrist x=0.4495, y=0.6749, z_geom=0.0000, z_m=0.5670
+value is 0.44952985644340515 and ctrl_val is -0.18129467368125915
+value is 0.6748980283737183 and ctrl_val is -0.0021019935607910155
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 95: Wrist x=0.4471, y=0.6713, z_geom=0.0000, z_m=0.5660
+value is 0.4471167325973511 and ctrl_val is -0.18274254798889158
+value is 0.6712540984153748 and ctrl_val is -0.004288351535797119
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 96: Wrist x=0.4433, y=0.6728, z_geom=0.0000, z_m=0.5660
+value is 0.4432780146598816 and ctrl_val is -0.1850457787513733
+value is 0.6728463172912598 and ctrl_val is -0.003333020210266113
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 97: Wrist x=0.4431, y=0.6737, z_geom=0.0000, z_m=0.5670
+value is 0.44310855865478516 and ctrl_val is -0.18514745235443114
+value is 0.673676073551178 and ctrl_val is -0.0028351664543151854
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 98: Wrist x=0.4427, y=0.6750, z_geom=0.0000, z_m=0.5660
+value is 0.4427267909049988 and ctrl_val is -0.18537651300430297
+value is 0.6750472784042358 and ctrl_val is -0.0020124435424804686
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 99: Wrist x=0.4377, y=0.6725, z_geom=0.0000, z_m=0.5670
+value is 0.43771740794181824 and ctrl_val is -0.1883821427822113
+value is 0.6724672317504883 and ctrl_val is -0.0035604715347290036
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 100: Wrist x=0.4386, y=0.6721, z_geom=0.0000, z_m=0.5670
+value is 0.43862247467041016 and ctrl_val is -0.18783910274505614
+value is 0.6721042990684509 and ctrl_val is -0.003778231143951416
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 101: Wrist x=0.4343, y=0.6759, z_geom=0.0000, z_m=0.5670
+value is 0.4342782497406006 and ctrl_val is -0.1904456377029419
+value is 0.6759304404258728 and ctrl_val is -0.001482546329498291
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 102: Wrist x=0.4341, y=0.6741, z_geom=0.0000, z_m=0.5670
+value is 0.4341032803058624 and ctrl_val is -0.19055061936378478
+value is 0.6741373538970947 and ctrl_val is -0.0025583982467651365
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 103: Wrist x=0.4380, y=0.6728, z_geom=0.0000, z_m=0.5670
+value is 0.438039094209671 and ctrl_val is -0.18818913102149962
+value is 0.6728149652481079 and ctrl_val is -0.0033518314361572266
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 104: Wrist x=0.4381, y=0.6732, z_geom=0.0000, z_m=0.5660
+value is 0.43805238604545593 and ctrl_val is -0.18818115592002868
+value is 0.6732063293457031 and ctrl_val is -0.0031170129776000974
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 105: Wrist x=0.4384, y=0.6707, z_geom=0.0000, z_m=0.5660
+value is 0.4384014904499054 and ctrl_val is -0.187971693277359
+value is 0.670735776424408 and ctrl_val is -0.004599344730377197
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 106: Wrist x=0.4378, y=0.6728, z_geom=0.0000, z_m=0.5660
+value is 0.4377945363521576 and ctrl_val is -0.1883358657360077
+value is 0.6728339791297913 and ctrl_val is -0.003340423107147217
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 107: Wrist x=0.4353, y=0.6742, z_geom=0.0000, z_m=0.5670
+value is 0.4353398382663727 and ctrl_val is -0.18980868458747863
+value is 0.6742336750030518 and ctrl_val is -0.002500605583190918
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 108: Wrist x=0.4376, y=0.6723, z_geom=0.0000, z_m=0.5660
+value is 0.43757081031799316 and ctrl_val is -0.18847010135650635
+value is 0.6723188757896423 and ctrl_val is -0.003649485111236572
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 109: Wrist x=0.4444, y=0.6685, z_geom=0.0000, z_m=0.5650
+value is 0.4444011449813843 and ctrl_val is -0.18437190055847166
+value is 0.6684893369674683 and ctrl_val is -0.005947208404541015
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 110: Wrist x=0.4370, y=0.6735, z_geom=0.0000, z_m=0.5660
+value is 0.43698909878730774 and ctrl_val is -0.1888191282749176
+value is 0.6735330820083618 and ctrl_val is -0.0029209613800048827
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 111: Wrist x=0.4373, y=0.6734, z_geom=0.0000, z_m=0.5650
+value is 0.43730515241622925 and ctrl_val is -0.1886294960975647
+value is 0.6733758449554443 and ctrl_val is -0.003015303611755371
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 112: Wrist x=0.4425, y=0.6744, z_geom=0.0000, z_m=0.5640
+value is 0.4425445795059204 and ctrl_val is -0.18548583984375
+value is 0.6744219660758972 and ctrl_val is -0.0023876309394836423
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 113: Wrist x=0.4412, y=0.6746, z_geom=0.0000, z_m=0.5640
+value is 0.4412485659122467 and ctrl_val is -0.18626344799995423
+value is 0.6745608448982239 and ctrl_val is -0.0023043036460876462
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 114: Wrist x=0.4450, y=0.6761, z_geom=0.0000, z_m=0.5610
+value is 0.44498082995414734 and ctrl_val is -0.18402408957481384
+value is 0.676093339920044 and ctrl_val is -0.0013848066329956055
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 115: Wrist x=0.4515, y=0.6764, z_geom=0.0000, z_m=0.5600
+value is 0.4514661431312561 and ctrl_val is -0.1801329016685486
+value is 0.6763888597488403 and ctrl_val is -0.0012074947357177733
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 116: Wrist x=0.4516, y=0.6778, z_geom=0.0000, z_m=0.5600
+value is 0.4516225755214691 and ctrl_val is -0.18003904223442077
+value is 0.6777505874633789 and ctrl_val is -0.0003904581069946289
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 117: Wrist x=0.4493, y=0.6753, z_geom=0.0000, z_m=0.5580
+value is 0.44933176040649414 and ctrl_val is -0.18141353130340576
+value is 0.6753233075141907 and ctrl_val is -0.0018468260765075683
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 118: Wrist x=0.4506, y=0.6752, z_geom=0.0000, z_m=0.5570
+value is 0.45060813426971436 and ctrl_val is -0.18064770698547364
+value is 0.6752241849899292 and ctrl_val is -0.001906299591064453
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 119: Wrist x=0.4490, y=0.6743, z_geom=0.0000, z_m=0.5550
+value is 0.4490238428115845 and ctrl_val is -0.18159828186035157
+value is 0.6743417978286743 and ctrl_val is -0.0024357318878173826
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 120: Wrist x=0.4495, y=0.6727, z_geom=0.0000, z_m=0.5520
+value is 0.4495006203651428 and ctrl_val is -0.18131221532821654
+value is 0.6726570129394531 and ctrl_val is -0.0034466028213500977
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 121: Wrist x=0.4534, y=0.6762, z_geom=0.0000, z_m=0.5510
+value is 0.4534430503845215 and ctrl_val is -0.17894675731658935
+value is 0.676161527633667 and ctrl_val is -0.0013438940048217773
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 122: Wrist x=0.4546, y=0.6779, z_geom=0.0000, z_m=0.5480
+value is 0.45459574460983276 and ctrl_val is -0.1782551407814026
+value is 0.6779173612594604 and ctrl_val is -0.0002903938293457031
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 123: Wrist x=0.4514, y=0.6769, z_geom=0.0000, z_m=0.5450
+value is 0.45136207342147827 and ctrl_val is -0.18019534349441527
+value is 0.6768907308578491 and ctrl_val is -0.0009063720703125
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 124: Wrist x=0.4512, y=0.6789, z_geom=0.0000, z_m=0.5400
+value is 0.4511723816394806 and ctrl_val is -0.18030915856361387
+value is 0.6788542866706848 and ctrl_val is 0.000271761417388916
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 125: Wrist x=0.4477, y=0.6839, z_geom=0.0000, z_m=0.5330
+value is 0.4477401375770569 and ctrl_val is -0.1823685050010681
+value is 0.6838803291320801 and ctrl_val is 0.003287386894226074
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 126: Wrist x=0.4512, y=0.6851, z_geom=0.0000, z_m=0.5240
+value is 0.4512348175048828 and ctrl_val is -0.18027169704437254
+value is 0.6850560307502747 and ctrl_val is 0.003992807865142822
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 127: Wrist x=0.4508, y=0.6825, z_geom=0.0000, z_m=0.5160
+value is 0.45084577798843384 and ctrl_val is -0.18050512075424194
+value is 0.6825397610664368 and ctrl_val is 0.002483046054840088
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 128: Wrist x=0.4529, y=0.6831, z_geom=0.0000, z_m=0.5090
+value is 0.45292970538139343 and ctrl_val is -0.17925476431846618
+value is 0.6831018924713135 and ctrl_val is 0.002820324897766113
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 129: Wrist x=0.4484, y=0.6816, z_geom=0.0000, z_m=0.5010
+value is 0.4484081268310547 and ctrl_val is -0.18196771144866944
+value is 0.6815643310546875 and ctrl_val is 0.0018977880477905273
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 130: Wrist x=0.4499, y=0.6838, z_geom=0.0000, z_m=0.4930
+value is 0.4499426484107971 and ctrl_val is -0.18104699850082398
+value is 0.6838096380233765 and ctrl_val is 0.003244972229003906
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 131: Wrist x=0.4477, y=0.6921, z_geom=0.0000, z_m=0.4870
+value is 0.4476924240589142 and ctrl_val is -0.18239713311195374
+value is 0.692144513130188 and ctrl_val is 0.00824589729309082
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 132: Wrist x=0.4444, y=0.6925, z_geom=0.0000, z_m=0.4800
+value is 0.44435667991638184 and ctrl_val is -0.18439857959747313
+value is 0.6924639940261841 and ctrl_val is 0.008437585830688476
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 133: Wrist x=0.4440, y=0.6925, z_geom=0.0000, z_m=0.4720
+value is 0.4440423548221588 and ctrl_val is -0.18458717465400695
+value is 0.6924864649772644 and ctrl_val is 0.00845106840133667
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 134: Wrist x=0.4448, y=0.6960, z_geom=0.0000, z_m=0.4660
+value is 0.4447603225708008 and ctrl_val is -0.18415639400482178
+value is 0.6960203647613525 and ctrl_val is 0.01057140827178955
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 135: Wrist x=0.4431, y=0.6969, z_geom=0.0000, z_m=0.4600
+value is 0.4431341886520386 and ctrl_val is -0.1851320743560791
+value is 0.6968810558319092 and ctrl_val is 0.011087822914123534
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 136: Wrist x=0.4453, y=0.6999, z_geom=0.0000, z_m=0.4540
+value is 0.44531485438346863 and ctrl_val is -0.18382367491722107
+value is 0.6999315023422241 and ctrl_val is 0.0129180908203125
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 137: Wrist x=0.4432, y=0.7032, z_geom=0.0000, z_m=0.4480
+value is 0.4431823492050171 and ctrl_val is -0.185103178024292
+value is 0.7031606435775757 and ctrl_val is 0.014855575561523436
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 138: Wrist x=0.4397, y=0.7050, z_geom=0.0000, z_m=0.4440
+value is 0.43971773982048035 and ctrl_val is -0.18718194365501403
+value is 0.7049682140350342 and ctrl_val is 0.015940117835998534
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 139: Wrist x=0.4365, y=0.7021, z_geom=0.0000, z_m=0.4390
+value is 0.43649977445602417 and ctrl_val is -0.18911272287368774
+value is 0.7020806074142456 and ctrl_val is 0.01420755386352539
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 140: Wrist x=0.4345, y=0.7032, z_geom=0.0000, z_m=0.4350
+value is 0.4345090389251709 and ctrl_val is -0.1903071641921997
+value is 0.7031835317611694 and ctrl_val is 0.014869308471679686
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 141: Wrist x=0.4358, y=0.7001, z_geom=0.0000, z_m=0.4300
+value is 0.43575170636177063 and ctrl_val is -0.18956156373023986
+value is 0.7001099586486816 and ctrl_val is 0.013025164604187012
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 142: Wrist x=0.4318, y=0.7018, z_geom=0.0000, z_m=0.4270
+value is 0.4318445920944214 and ctrl_val is -0.19190583229064942
+value is 0.7017871737480164 and ctrl_val is 0.014031493663787841
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 143: Wrist x=0.4249, y=0.7052, z_geom=0.0000, z_m=0.4240
+value is 0.42488381266593933 and ctrl_val is -0.19608229994773865
+value is 0.7051530480384827 and ctrl_val is 0.016051018238067625
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 144: Wrist x=0.4223, y=0.7052, z_geom=0.0000, z_m=0.4200
+value is 0.42234256863594055 and ctrl_val is -0.19760704636573792
+value is 0.7051899433135986 and ctrl_val is 0.016073155403137206
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 145: Wrist x=0.4186, y=0.7097, z_geom=0.0000, z_m=0.4170
+value is 0.41862109303474426 and ctrl_val is -0.19983993172645567
+value is 0.7097184062004089 and ctrl_val is 0.018790233135223388
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 146: Wrist x=0.4135, y=0.7135, z_geom=0.0000, z_m=0.4120
+value is 0.413472056388855 and ctrl_val is -0.20292935371398926
+value is 0.7135018110275269 and ctrl_val is 0.02106027603149414
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 147: Wrist x=0.4154, y=0.7179, z_geom=0.0000, z_m=0.4070
+value is 0.4153531491756439 and ctrl_val is -0.2018006980419159
+value is 0.7178530693054199 and ctrl_val is 0.02367103099822998
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 148: Wrist x=0.4119, y=0.7232, z_geom=0.0000, z_m=0.4020
+value is 0.41190895438194275 and ctrl_val is -0.20386721491813659
+value is 0.7232220768928528 and ctrl_val is 0.026892435550689698
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 149: Wrist x=0.4103, y=0.7274, z_geom=0.0000, z_m=0.3970
+value is 0.4103224277496338 and ctrl_val is -0.20481913089752196
+value is 0.7273662686347961 and ctrl_val is 0.029378950595855713
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 150: Wrist x=0.4084, y=0.7233, z_geom=0.0000, z_m=0.3930
+value is 0.4083685874938965 and ctrl_val is -0.20599143505096434
+value is 0.7232812643051147 and ctrl_val is 0.026927947998046875
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 151: Wrist x=0.4059, y=0.7226, z_geom=0.0000, z_m=0.3880
+value is 0.4058791995048523 and ctrl_val is -0.20748506784439086
+value is 0.7225785255432129 and ctrl_val is 0.02650630474090576
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 152: Wrist x=0.4030, y=0.7195, z_geom=0.0000, z_m=0.3840
+value is 0.4030184745788574 and ctrl_val is -0.20920150279998778
+value is 0.719475269317627 and ctrl_val is 0.024644351005554198
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 153: Wrist x=0.3957, y=0.7236, z_geom=0.0000, z_m=0.3810
+value is 0.3957018554210663 and ctrl_val is -0.21359147429466246
+value is 0.7236236929893494 and ctrl_val is 0.027133405208587646
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 154: Wrist x=0.3884, y=0.7287, z_geom=0.0000, z_m=0.3730
+value is 0.3883667588233948 and ctrl_val is -0.21799253225326537
+value is 0.7286919355392456 and ctrl_val is 0.03017435073852539
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 155: Wrist x=0.3885, y=0.7296, z_geom=0.0000, z_m=0.3690
+value is 0.38848358392715454 and ctrl_val is -0.2179224371910095
+value is 0.7295854091644287 and ctrl_val is 0.030710434913635253
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 156: Wrist x=0.3835, y=0.7376, z_geom=0.0000, z_m=0.3680
+value is 0.38346338272094727 and ctrl_val is -0.22093455791473388
+value is 0.7375713586807251 and ctrl_val is 0.03550200462341308
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 157: Wrist x=0.3839, y=0.7413, z_geom=0.0000, z_m=0.3650
+value is 0.38390228152275085 and ctrl_val is -0.22067121863365172
+value is 0.7413227558135986 and ctrl_val is 0.037752842903137206
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 158: Wrist x=0.3838, y=0.7416, z_geom=0.0000, z_m=0.3620
+value is 0.3837817311286926 and ctrl_val is -0.22074354887008665
+value is 0.7415515780448914 and ctrl_val is 0.03789013624191284
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 159: Wrist x=0.3847, y=0.7395, z_geom=0.0000, z_m=0.3610
+value is 0.38468462228775024 and ctrl_val is -0.2202018141746521
+value is 0.7394644021987915 and ctrl_val is 0.036637830734252926
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 160: Wrist x=0.3810, y=0.7408, z_geom=0.0000, z_m=0.3610
+value is 0.38098934292793274 and ctrl_val is -0.2224189817905426
+value is 0.7408182621002197 and ctrl_val is 0.03745014667510986
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 161: Wrist x=0.3851, y=0.7344, z_geom=0.0000, z_m=0.3580
+value is 0.3851192593574524 and ctrl_val is -0.2199410319328308
+value is 0.7344344854354858 and ctrl_val is 0.03361988067626953
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 162: Wrist x=0.3836, y=0.7432, z_geom=0.0000, z_m=0.3570
+value is 0.38359418511390686 and ctrl_val is -0.22085607647895814
+value is 0.7432100772857666 and ctrl_val is 0.03888523578643799
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 163: Wrist x=0.3858, y=0.7487, z_geom=0.0000, z_m=0.3550
+value is 0.38582438230514526 and ctrl_val is -0.21951795816421507
+value is 0.748654305934906 and ctrl_val is 0.04215177297592163
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 164: Wrist x=0.3831, y=0.7509, z_geom=0.0000, z_m=0.3540
+value is 0.3830970525741577 and ctrl_val is -0.2211543560028076
+value is 0.750919759273529 and ctrl_val is 0.043511044979095456
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 165: Wrist x=0.3885, y=0.7474, z_geom=0.0000, z_m=0.3510
+value is 0.38847440481185913 and ctrl_val is -0.21792794466018675
+value is 0.7474454641342163 and ctrl_val is 0.04142646789550781
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 166: Wrist x=0.3911, y=0.7491, z_geom=0.0000, z_m=0.3500
+value is 0.3911287486553192 and ctrl_val is -0.2163353383541107
+value is 0.7491348385810852 and ctrl_val is 0.04244009256362915
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 167: Wrist x=0.3940, y=0.7481, z_geom=0.0000, z_m=0.3480
+value is 0.3939908742904663 and ctrl_val is -0.21461806297302247
+value is 0.7481377124786377 and ctrl_val is 0.04184181690216064
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 168: Wrist x=0.3977, y=0.7438, z_geom=0.0000, z_m=0.3470
+value is 0.39774343371391296 and ctrl_val is -0.21236652731895447
+value is 0.7438383102416992 and ctrl_val is 0.03926217555999756
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 169: Wrist x=0.4006, y=0.7465, z_geom=0.0000, z_m=0.3470
+value is 0.40062469244003296 and ctrl_val is -0.21063777208328247
+value is 0.7465039491653442 and ctrl_val is 0.04086155891418457
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 170: Wrist x=0.4002, y=0.7391, z_geom=0.0000, z_m=0.3450
+value is 0.40024012327194214 and ctrl_val is -0.21086851358413697
+value is 0.7390792369842529 and ctrl_val is 0.036406731605529784
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 171: Wrist x=0.4040, y=0.7409, z_geom=0.0000, z_m=0.3440
+value is 0.4040328860282898 and ctrl_val is -0.20859285593032836
+value is 0.7408620715141296 and ctrl_val is 0.03747643232345581
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 172: Wrist x=0.4034, y=0.7427, z_geom=0.0000, z_m=0.3440
+value is 0.40343403816223145 and ctrl_val is -0.20895216464996338
+value is 0.7426961660385132 and ctrl_val is 0.03857688903808593
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 173: Wrist x=0.4022, y=0.7408, z_geom=0.0000, z_m=0.3430
+value is 0.40224942564964294 and ctrl_val is -0.20966293215751647
+value is 0.7408304214477539 and ctrl_val is 0.03745744228363037
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 174: Wrist x=0.4042, y=0.7426, z_geom=0.0000, z_m=0.3430
+value is 0.40424156188964844 and ctrl_val is -0.20846765041351317
+value is 0.742639422416687 and ctrl_val is 0.03854284286499023
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 175: Wrist x=0.4049, y=0.7419, z_geom=0.0000, z_m=0.3420
+value is 0.4049142599105835 and ctrl_val is -0.20806403160095213
+value is 0.7419314384460449 and ctrl_val is 0.038118052482604976
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 176: Wrist x=0.3983, y=0.7470, z_geom=0.0000, z_m=0.3430
+value is 0.3983328342437744 and ctrl_val is -0.2120128870010376
+value is 0.7469903230667114 and ctrl_val is 0.04115338325500488
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 177: Wrist x=0.4025, y=0.7476, z_geom=0.0000, z_m=0.3420
+value is 0.4024607539176941 and ctrl_val is -0.2095361351966858
+value is 0.7475566864013672 and ctrl_val is 0.04149320125579834
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 178: Wrist x=0.4041, y=0.7468, z_geom=0.0000, z_m=0.3410
+value is 0.40413352847099304 and ctrl_val is -0.2085324704647064
+value is 0.7468032240867615 and ctrl_val is 0.04104112386703491
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 179: Wrist x=0.4008, y=0.7565, z_geom=0.0000, z_m=0.3410
+value is 0.40084633231163025 and ctrl_val is -0.21050478816032409
+value is 0.7565240859985352 and ctrl_val is 0.04687364101409912
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 180: Wrist x=0.4092, y=0.7446, z_geom=0.0000, z_m=0.3390
+value is 0.40916329622268677 and ctrl_val is -0.20551460981369019
+value is 0.7445958852767944 and ctrl_val is 0.03971672058105469
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 181: Wrist x=0.4038, y=0.7502, z_geom=0.0000, z_m=0.3390
+value is 0.40381741523742676 and ctrl_val is -0.20872213840484619
+value is 0.7501933574676514 and ctrl_val is 0.04307520389556885
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 182: Wrist x=0.4048, y=0.7520, z_geom=0.0000, z_m=0.3390
+value is 0.40481191873550415 and ctrl_val is -0.20812543630599975
+value is 0.7520222663879395 and ctrl_val is 0.0441725492477417
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 183: Wrist x=0.3966, y=0.7583, z_geom=0.0000, z_m=0.3400
+value is 0.39661645889282227 and ctrl_val is -0.2130427122116089
+value is 0.7583305835723877 and ctrl_val is 0.047957539558410645
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 184: Wrist x=0.4029, y=0.7564, z_geom=0.0000, z_m=0.3390
+value is 0.4029468595981598 and ctrl_val is -0.20924447178840636
+value is 0.7563857436180115 and ctrl_val is 0.04679063558578491
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 185: Wrist x=0.3970, y=0.7604, z_geom=0.0000, z_m=0.3390
+value is 0.3969604969024658 and ctrl_val is -0.21283628940582275
+value is 0.7604250907897949 and ctrl_val is 0.04921424388885498
+index_pip_act: 0.12 rad (6.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 186: Wrist x=0.4021, y=0.7588, z_geom=0.0000, z_m=0.3370
+value is 0.402090847492218 and ctrl_val is -0.20975807905197144
+value is 0.7587510347366333 and ctrl_val is 0.04820981025695801
+index_pip_act: 0.15 rad (8.4°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 187: Wrist x=0.3963, y=0.7643, z_geom=0.0000, z_m=0.3390
+value is 0.3963361382484436 and ctrl_val is -0.21321090459823608
+value is 0.7643080353736877 and ctrl_val is 0.051544010639190674
+index_pip_act: 0.16 rad (9.1°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 188: Wrist x=0.4008, y=0.7619, z_geom=0.0000, z_m=0.3370
+value is 0.4008321464061737 and ctrl_val is -0.21051329970359803
+value is 0.7619437575340271 and ctrl_val is 0.05012544393539429
+index_pip_act: 0.19 rad (10.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 189: Wrist x=0.4020, y=0.7648, z_geom=0.0000, z_m=0.3360
+value is 0.4020087420940399 and ctrl_val is -0.2098073422908783
+value is 0.764839768409729 and ctrl_val is 0.05186305046081543
+index_pip_act: 0.23 rad (13.3°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 190: Wrist x=0.3975, y=0.7721, z_geom=0.0000, z_m=0.3380
+value is 0.3975459337234497 and ctrl_val is -0.2124850273132324
+value is 0.7720511555671692 and ctrl_val is 0.05618988275527954
+index_pip_act: 0.28 rad (15.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 191: Wrist x=0.3986, y=0.7695, z_geom=0.0000, z_m=0.3360
+value is 0.3986177444458008 and ctrl_val is -0.21184194087982178
+value is 0.769480288028717 and ctrl_val is 0.05464736223220825
+index_pip_act: 0.34 rad (19.2°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 192: Wrist x=0.3987, y=0.7689, z_geom=0.0000, z_m=0.3350
+value is 0.3987174928188324 and ctrl_val is -0.2117820918560028
+value is 0.7688984870910645 and ctrl_val is 0.0542982816696167
+index_pip_act: 0.35 rad (20.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 193: Wrist x=0.3986, y=0.7733, z_geom=0.0000, z_m=0.3350
+value is 0.39859485626220703 and ctrl_val is -0.21185567378997802
+value is 0.7732667922973633 and ctrl_val is 0.05691926479339599
+index_pip_act: 0.38 rad (21.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 194: Wrist x=0.3960, y=0.7768, z_geom=0.0000, z_m=0.3350
+value is 0.39601069688796997 and ctrl_val is -0.21340616941452026
+value is 0.7768464088439941 and ctrl_val is 0.059067034721374506
+index_pip_act: 0.41 rad (23.5°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 195: Wrist x=0.3975, y=0.7758, z_geom=0.0000, z_m=0.3340
+value is 0.3974739611148834 and ctrl_val is -0.21252821087837218
+value is 0.7758445739746094 and ctrl_val is 0.05846593379974365
+index_pip_act: 0.45 rad (25.7°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 196: Wrist x=0.3998, y=0.7731, z_geom=0.0000, z_m=0.3330
+value is 0.39977824687957764 and ctrl_val is -0.21114563941955566
+value is 0.7730997204780579 and ctrl_val is 0.056819021701812744
+index_pip_act: 0.58 rad (33.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 197: Wrist x=0.3978, y=0.7682, z_geom=0.0000, z_m=0.3320
+value is 0.3977617025375366 and ctrl_val is -0.21235556602478026
+value is 0.7682454586029053 and ctrl_val is 0.05390646457672119
+index_pip_act: 0.67 rad (38.2°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 198: Wrist x=0.3949, y=0.7654, z_geom=0.0000, z_m=0.3330
+value is 0.3949386179447174 and ctrl_val is -0.2140494167804718
+value is 0.7653831243515015 and ctrl_val is 0.052189064025878903
+index_pip_act: 0.98 rad (56.1°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 199: Wrist x=0.3981, y=0.7722, z_geom=0.0000, z_m=0.3330
+value is 0.3981287479400635 and ctrl_val is -0.21213533878326415
+value is 0.7721619009971619 and ctrl_val is 0.056256330013275145
+index_pip_act: 1.12 rad (64.5°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 200: Wrist x=0.4008, y=0.7716, z_geom=0.0000, z_m=0.3330
+value is 0.400839626789093 and ctrl_val is -0.21050881147384642
+value is 0.7716112732887268 and ctrl_val is 0.05592595338821411
+index_pip_act: 1.14 rad (65.4°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 201: Wrist x=0.3992, y=0.7679, z_geom=0.0000, z_m=0.3320
+value is 0.39915362000465393 and ctrl_val is -0.21152041554450987
+value is 0.7678709626197815 and ctrl_val is 0.05368176698684692
+index_pip_act: 1.29 rad (73.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 202: Wrist x=0.4016, y=0.7688, z_geom=0.0000, z_m=0.3320
+value is 0.4015812873840332 and ctrl_val is -0.21006381511688232
+value is 0.7687682509422302 and ctrl_val is 0.05422013998031616
+index_pip_act: 1.35 rad (77.1°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 203: Wrist x=0.4015, y=0.7665, z_geom=0.0000, z_m=0.3320
+value is 0.4015052914619446 and ctrl_val is -0.2101094126701355
+value is 0.7665297985076904 and ctrl_val is 0.052877068519592285
+index_pip_act: 1.44 rad (82.6°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 204: Wrist x=0.4072, y=0.7621, z_geom=0.0000, z_m=0.3310
+value is 0.40723833441734314 and ctrl_val is -0.20666958689689635
+value is 0.7621405124664307 and ctrl_val is 0.050243496894836426
+index_pip_act: 1.52 rad (87.1°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 205: Wrist x=0.4019, y=0.7617, z_geom=0.0000, z_m=0.3320
+value is 0.40194207429885864 and ctrl_val is -0.20984734296798704
+value is 0.7617028951644897 and ctrl_val is 0.04998092651367187
+index_pip_act: 1.56 rad (89.5°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 206: Wrist x=0.4082, y=0.7549, z_geom=0.0000, z_m=0.3310
+value is 0.4081929922103882 and ctrl_val is -0.20609679222106933
+value is 0.7549421787261963 and ctrl_val is 0.0459244966506958
+index_pip_act: 1.70 rad (97.2°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 207: Wrist x=0.4066, y=0.7548, z_geom=0.0000, z_m=0.3310
+value is 0.4066241681575775 and ctrl_val is -0.20703808665275572
+value is 0.7547645568847656 and ctrl_val is 0.0458179235458374
+index_pip_act: 1.72 rad (98.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 208: Wrist x=0.4086, y=0.7531, z_geom=0.0000, z_m=0.3300
+value is 0.4086489677429199 and ctrl_val is -0.2058232069015503
+value is 0.7530802488327026 and ctrl_val is 0.04480733871459961
+index_pip_act: 1.77 rad (101.4°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 209: Wrist x=0.4110, y=0.7448, z_geom=0.0000, z_m=0.3290
+value is 0.4109630882740021 and ctrl_val is -0.20443473458290098
+value is 0.7448095083236694 and ctrl_val is 0.03984489440917969
+index_pip_act: 1.78 rad (101.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 210: Wrist x=0.4032, y=0.7512, z_geom=0.0000, z_m=0.3300
+value is 0.40319910645484924 and ctrl_val is -0.2090931236743927
+value is 0.7511908411979675 and ctrl_val is 0.043673694133758545
+index_pip_act: 1.78 rad (101.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 211: Wrist x=0.4082, y=0.7469, z_geom=0.0000, z_m=0.3300
+value is 0.40823695063591003 and ctrl_val is -0.20607041716575622
+value is 0.7469282150268555 and ctrl_val is 0.04111611843109131
+index_pip_act: 1.80 rad (102.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 212: Wrist x=0.4049, y=0.7473, z_geom=0.0000, z_m=0.3300
+value is 0.4049389064311981 and ctrl_val is -0.20804924368858338
+value is 0.7472814321517944 and ctrl_val is 0.041328048706054686
+index_pip_act: 1.86 rad (106.4°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 213: Wrist x=0.3975, y=0.7514, z_geom=0.0000, z_m=0.3310
+value is 0.3975079655647278 and ctrl_val is -0.21250780820846557
+value is 0.7513648867607117 and ctrl_val is 0.04377812147140503
+index_pip_act: 1.90 rad (108.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 214: Wrist x=0.4019, y=0.7475, z_geom=0.0000, z_m=0.3290
+value is 0.4018718898296356 and ctrl_val is -0.20988945364952086
+value is 0.747538149356842 and ctrl_val is 0.04148207902908325
+index_pip_act: 1.93 rad (110.6°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 215: Wrist x=0.3968, y=0.7523, z_geom=0.0000, z_m=0.3310
+value is 0.3967929482460022 and ctrl_val is -0.21293681859970093
+value is 0.7523247599601746 and ctrl_val is 0.044354045391082765
+index_pip_act: 1.94 rad (110.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 216: Wrist x=0.3963, y=0.7557, z_geom=0.0000, z_m=0.3320
+value is 0.396251916885376 and ctrl_val is -0.21326143741607664
+value is 0.7556625604629517 and ctrl_val is 0.04635672569274902
+index_pip_act: 1.94 rad (111.3°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 217: Wrist x=0.3921, y=0.7601, z_geom=0.0000, z_m=0.3330
+value is 0.3920647203922272 and ctrl_val is -0.21577375531196594
+value is 0.7601261138916016 and ctrl_val is 0.049034857749938966
+index_pip_act: 1.96 rad (112.2°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 218: Wrist x=0.3997, y=0.7563, z_geom=0.0000, z_m=0.3310
+value is 0.39966315031051636 and ctrl_val is -0.21121469736099244
+value is 0.756291389465332 and ctrl_val is 0.04673402309417724
+index_pip_act: 1.99 rad (114.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 219: Wrist x=0.4009, y=0.7568, z_geom=0.0000, z_m=0.3320
+value is 0.40085282921791077 and ctrl_val is -0.21050089001655578
+value is 0.7568210363388062 and ctrl_val is 0.04705181121826172
+index_pip_act: 1.99 rad (114.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 220: Wrist x=0.4009, y=0.7516, z_geom=0.0000, z_m=0.3310
+value is 0.40088391304016113 and ctrl_val is -0.21048223972320557
+value is 0.7515586614608765 and ctrl_val is 0.043894386291503905
+index_pip_act: 1.99 rad (114.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 221: Wrist x=0.3972, y=0.7518, z_geom=0.0000, z_m=0.3310
+value is 0.39715778827667236 and ctrl_val is -0.21271791458129882
+value is 0.7518105506896973 and ctrl_val is 0.044045519828796384
+index_pip_act: 1.99 rad (114.2°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 222: Wrist x=0.3903, y=0.7538, z_geom=0.0000, z_m=0.3340
+value is 0.3903377950191498 and ctrl_val is -0.21680991053581236
+value is 0.7538352608680725 and ctrl_val is 0.04526034593582153
+index_pip_act: 2.02 rad (116.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 223: Wrist x=0.3922, y=0.7518, z_geom=0.0000, z_m=0.3320
+value is 0.39224693179130554 and ctrl_val is -0.2156644284725189
+value is 0.7518266439437866 and ctrl_val is 0.04405517578125
+index_pip_act: 2.04 rad (117.1°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 224: Wrist x=0.3971, y=0.7494, z_geom=0.0000, z_m=0.3310
+value is 0.39707425236701965 and ctrl_val is -0.21276803612709044
+value is 0.7494300007820129 and ctrl_val is 0.04261718988418579
+index_pip_act: 2.07 rad (118.6°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 225: Wrist x=0.4018, y=0.7443, z_geom=0.0000, z_m=0.3300
+value is 0.4017731547355652 and ctrl_val is -0.20994869470596314
+value is 0.7443411946296692 and ctrl_val is 0.03956390619277954
+index_pip_act: 2.08 rad (119.3°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 226: Wrist x=0.4006, y=0.7436, z_geom=0.0000, z_m=0.3300
+value is 0.4006144404411316 and ctrl_val is -0.2106439232826233
+value is 0.7435774207115173 and ctrl_val is 0.039105641841888424
+index_pip_act: 2.09 rad (119.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 227: Wrist x=0.3984, y=0.7444, z_geom=0.0000, z_m=0.3310
+value is 0.39841562509536743 and ctrl_val is -0.2119632124900818
+value is 0.7444097995758057 and ctrl_val is 0.03960506916046142
+index_pip_act: 2.09 rad (119.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 228: Wrist x=0.4041, y=0.7414, z_geom=0.0000, z_m=0.3300
+value is 0.40409359335899353 and ctrl_val is -0.20855643153190612
+value is 0.7413965463638306 and ctrl_val is 0.03779711723327637
+index_pip_act: 2.09 rad (119.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 229: Wrist x=0.3930, y=0.7498, z_geom=0.0000, z_m=0.3330
+value is 0.39302298426628113 and ctrl_val is -0.21519879698753355
+value is 0.7497864961624146 and ctrl_val is 0.04283108711242676
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 230: Wrist x=0.3977, y=0.7454, z_geom=0.0000, z_m=0.3310
+value is 0.39766430854797363 and ctrl_val is -0.21241400241851807
+value is 0.7454462647438049 and ctrl_val is 0.040226948261260984
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 231: Wrist x=0.3918, y=0.7500, z_geom=0.0000, z_m=0.3330
+value is 0.3917599618434906 and ctrl_val is -0.21595661044120787
+value is 0.7499938607215881 and ctrl_val is 0.042955505847930904
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 232: Wrist x=0.3986, y=0.7420, z_geom=0.0000, z_m=0.3300
+value is 0.39861369132995605 and ctrl_val is -0.2118443727493286
+value is 0.7419871687889099 and ctrl_val is 0.03815149068832397
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 233: Wrist x=0.3919, y=0.7453, z_geom=0.0000, z_m=0.3320
+value is 0.3918526768684387 and ctrl_val is -0.215900981426239
+value is 0.7453221678733826 and ctrl_val is 0.04015249013900757
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 234: Wrist x=0.3903, y=0.7489, z_geom=0.0000, z_m=0.3330
+value is 0.39034509658813477 and ctrl_val is -0.21680552959442137
+value is 0.7489093542098999 and ctrl_val is 0.042304801940917965
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 235: Wrist x=0.3997, y=0.7410, z_geom=0.0000, z_m=0.3300
+value is 0.3997393846511841 and ctrl_val is -0.21116895675659178
+value is 0.740968644618988 and ctrl_val is 0.03754037618637085
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 236: Wrist x=0.3945, y=0.7425, z_geom=0.0000, z_m=0.3310
+value is 0.3945145308971405 and ctrl_val is -0.21430386900901793
+value is 0.7425378561019897 and ctrl_val is 0.03848190307617187
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 237: Wrist x=0.3909, y=0.7492, z_geom=0.0000, z_m=0.3330
+value is 0.3908727765083313 and ctrl_val is -0.21648892164230346
+value is 0.749173641204834 and ctrl_val is 0.042463374137878415
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 238: Wrist x=0.3911, y=0.7491, z_geom=0.0000, z_m=0.3330
+value is 0.3911035358905792 and ctrl_val is -0.2163504660129547
+value is 0.7490569949150085 and ctrl_val is 0.042393386363983154
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 239: Wrist x=0.3920, y=0.7496, z_geom=0.0000, z_m=0.3330
+value is 0.3919856548309326 and ctrl_val is -0.21582119464874266
+value is 0.7496044635772705 and ctrl_val is 0.04272186756134033
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 240: Wrist x=0.3881, y=0.7509, z_geom=0.0000, z_m=0.3340
+value is 0.38810473680496216 and ctrl_val is -0.21814974546432495
+value is 0.7509005069732666 and ctrl_val is 0.04349949359893799
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 241: Wrist x=0.3875, y=0.7507, z_geom=0.0000, z_m=0.3340
+value is 0.38748598098754883 and ctrl_val is -0.21852099895477295
+value is 0.7507286071777344 and ctrl_val is 0.04339635372161865
+index_pip_act: 2.09 rad (120.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 242: Wrist x=0.3984, y=0.7458, z_geom=0.0000, z_m=0.3310
+value is 0.39838501811027527 and ctrl_val is -0.21198157668113707
+value is 0.7458316087722778 and ctrl_val is 0.040458154678344724
+index_pip_act: 2.09 rad (119.7°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 243: Wrist x=0.4030, y=0.7396, z_geom=0.0000, z_m=0.3300
+value is 0.4030115008354187 and ctrl_val is -0.20920568704605103
+value is 0.7395629286766052 and ctrl_val is 0.03669694662094116
+index_pip_act: 2.04 rad (117.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 244: Wrist x=0.3918, y=0.7507, z_geom=0.0000, z_m=0.3340
+value is 0.39182665944099426 and ctrl_val is -0.21591659188270568
+value is 0.7506800293922424 and ctrl_val is 0.043367207050323486
+index_pip_act: 2.02 rad (115.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 245: Wrist x=0.4023, y=0.7416, z_geom=0.0000, z_m=0.3310
+value is 0.40231063961982727 and ctrl_val is -0.2096262037754059
+value is 0.7416254281997681 and ctrl_val is 0.03793444633483887
+index_pip_act: 1.99 rad (114.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 246: Wrist x=0.4041, y=0.7422, z_geom=0.0000, z_m=0.3310
+value is 0.4040941596031189 and ctrl_val is -0.2085560917854309
+value is 0.7422375679016113 and ctrl_val is 0.038301730155944826
+index_pip_act: 1.96 rad (112.6°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 247: Wrist x=0.4018, y=0.7417, z_geom=0.0000, z_m=0.3310
+value is 0.4018115699291229 and ctrl_val is -0.20992564558982849
+value is 0.7416850328445435 and ctrl_val is 0.0379702091217041
+index_pip_act: 1.79 rad (102.6°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 248: Wrist x=0.3889, y=0.7515, z_geom=0.0000, z_m=0.3360
+value is 0.3889200687408447 and ctrl_val is -0.2176605463027954
+value is 0.7514551877975464 and ctrl_val is 0.04383230209350586
+index_pip_act: 1.68 rad (96.5°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 249: Wrist x=0.3913, y=0.7524, z_geom=0.0000, z_m=0.3370
+value is 0.39131978154182434 and ctrl_val is -0.21622071862220762
+value is 0.7524013519287109 and ctrl_val is 0.04440000057220459
+index_pip_act: 1.52 rad (87.3°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 250: Wrist x=0.3959, y=0.7574, z_geom=0.0000, z_m=0.3370
+value is 0.3958798050880432 and ctrl_val is -0.21348470449447632
+value is 0.7574021220207214 and ctrl_val is 0.047400462627410885
+index_pip_act: 1.40 rad (80.5°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 251: Wrist x=0.4028, y=0.7588, z_geom=0.0000, z_m=0.3360
+value is 0.4028431177139282 and ctrl_val is -0.2093067169189453
+value is 0.7587532997131348 and ctrl_val is 0.048211169242858884
+index_pip_act: 1.31 rad (75.2°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 252: Wrist x=0.3977, y=0.7658, z_geom=0.0000, z_m=0.3380
+value is 0.39774537086486816 and ctrl_val is -0.21236536502838135
+value is 0.7657520771026611 and ctrl_val is 0.052410435676574704
+index_pip_act: 0.93 rad (53.4°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 253: Wrist x=0.4049, y=0.7649, z_geom=0.0000, z_m=0.3370
+value is 0.4048963487148285 and ctrl_val is -0.20807477831840515
+value is 0.764937162399292 and ctrl_val is 0.05192148685455322
+index_pip_act: 0.53 rad (30.5°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 254: Wrist x=0.3949, y=0.7662, z_geom=0.0000, z_m=0.3390
+value is 0.3949304223060608 and ctrl_val is -0.21405433416366576
+value is 0.7662338018417358 and ctrl_val is 0.05269947052001953
+index_pip_act: 0.43 rad (24.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 255: Wrist x=0.4035, y=0.7703, z_geom=0.0000, z_m=0.3380
+value is 0.40352338552474976 and ctrl_val is -0.20889855623245238
+value is 0.770279049873352 and ctrl_val is 0.055126619338989255
+index_pip_act: 0.33 rad (18.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 256: Wrist x=0.4012, y=0.7721, z_geom=0.0000, z_m=0.3390
+value is 0.40123265981674194 and ctrl_val is -0.21027299165725707
+value is 0.7720524668693542 and ctrl_val is 0.056190669536590576
+index_pip_act: 0.21 rad (11.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 257: Wrist x=0.3991, y=0.7713, z_geom=0.0000, z_m=0.3380
+value is 0.3991241455078125 and ctrl_val is -0.21153810024261474
+value is 0.7713081240653992 and ctrl_val is 0.055744063854217527
+index_pip_act: 0.19 rad (10.9°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 258: Wrist x=0.4027, y=0.7744, z_geom=0.0000, z_m=0.3380
+value is 0.402725487947464 and ctrl_val is -0.20937729477882386
+value is 0.7744339108467102 and ctrl_val is 0.057619535923004145
+index_pip_act: 0.15 rad (8.8°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 259: Wrist x=0.4001, y=0.7775, z_geom=0.0000, z_m=0.3380
+value is 0.40007340908050537 and ctrl_val is -0.210968542098999
+value is 0.7775381207466125 and ctrl_val is 0.05948206186294555
+index_pip_act: 0.14 rad (8.1°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 260: Wrist x=0.4158, y=0.7673, z_geom=0.0000, z_m=0.3340
+value is 0.41584622859954834 and ctrl_val is -0.20150485038757324
+value is 0.7673420906066895 and ctrl_val is 0.053364443778991695
+index_pip_act: 0.13 rad (7.4°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 261: Wrist x=0.4071, y=0.7819, z_geom=0.0000, z_m=0.3370
+value is 0.40711385011672974 and ctrl_val is -0.2067442774772644
+value is 0.7818987369537354 and ctrl_val is 0.062098431587219234
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 262: Wrist x=0.4123, y=0.7823, z_geom=0.0000, z_m=0.3360
+value is 0.4123493432998657 and ctrl_val is -0.2036029815673828
+value is 0.7822930812835693 and ctrl_val is 0.06233503818511962
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 263: Wrist x=0.4219, y=0.7707, z_geom=0.0000, z_m=0.3320
+value is 0.4219387471675873 and ctrl_val is -0.19784933924674988
+value is 0.7707141041755676 and ctrl_val is 0.0553876519203186
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 264: Wrist x=0.4141, y=0.7812, z_geom=0.0000, z_m=0.3340
+value is 0.4141489267349243 and ctrl_val is -0.20252323150634766
+value is 0.7812420725822449 and ctrl_val is 0.06170443296432495
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 265: Wrist x=0.4188, y=0.7866, z_geom=0.0000, z_m=0.3340
+value is 0.4188491106033325 and ctrl_val is -0.19970312118530273
+value is 0.7866197824478149 and ctrl_val is 0.06493105888366699
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 266: Wrist x=0.4172, y=0.7870, z_geom=0.0000, z_m=0.3340
+value is 0.41720670461654663 and ctrl_val is -0.20068856477737426
+value is 0.7869530916213989 and ctrl_val is 0.06513104438781737
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 267: Wrist x=0.4224, y=0.7872, z_geom=0.0000, z_m=0.3330
+value is 0.42243945598602295 and ctrl_val is -0.19754891395568847
+value is 0.7872152924537659 and ctrl_val is 0.06528836488723755
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 268: Wrist x=0.4251, y=0.7876, z_geom=0.0000, z_m=0.3330
+value is 0.4250526428222656 and ctrl_val is -0.19598100185394288
+value is 0.7876012325286865 and ctrl_val is 0.06551992893218994
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 269: Wrist x=0.4208, y=0.7951, z_geom=0.0000, z_m=0.3350
+value is 0.4208240509033203 and ctrl_val is -0.19851815700531006
+value is 0.7950793504714966 and ctrl_val is 0.07000679969787597
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 270: Wrist x=0.4257, y=0.7992, z_geom=0.0000, z_m=0.3350
+value is 0.4257434010505676 and ctrl_val is -0.19556654691696165
+value is 0.7992047667503357 and ctrl_val is 0.07248204946517944
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 271: Wrist x=0.4321, y=0.7932, z_geom=0.0000, z_m=0.3330
+value is 0.43213140964508057 and ctrl_val is -0.1917337417602539
+value is 0.7932111620903015 and ctrl_val is 0.06888588666915893
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 272: Wrist x=0.4304, y=0.7950, z_geom=0.0000, z_m=0.3340
+value is 0.43037909269332886 and ctrl_val is -0.19278513193130492
+value is 0.7950177788734436 and ctrl_val is 0.06996985673904418
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 273: Wrist x=0.4294, y=0.8002, z_geom=0.0000, z_m=0.3350
+value is 0.42944470047950745 and ctrl_val is -0.19334576725959776
+value is 0.8002187013626099 and ctrl_val is 0.07309041023254394
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 274: Wrist x=0.4325, y=0.7986, z_geom=0.0000, z_m=0.3350
+value is 0.43246832489967346 and ctrl_val is -0.19153159260749816
+value is 0.7985726594924927 and ctrl_val is 0.07210278511047363
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 275: Wrist x=0.4327, y=0.8079, z_geom=0.0000, z_m=0.3365
+value is 0.4327356517314911 and ctrl_val is -0.1913711965084076
+value is 0.8079214692115784 and ctrl_val is 0.07771207094192505
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 276: Wrist x=0.4342, y=0.7984, z_geom=0.0000, z_m=0.3360
+value is 0.43423178791999817 and ctrl_val is -0.19047351479530333
+value is 0.7984315156936646 and ctrl_val is 0.07201809883117676
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 277: Wrist x=0.4294, y=0.8082, z_geom=0.0000, z_m=0.3400
+value is 0.4294131100177765 and ctrl_val is -0.19336472153663634
+value is 0.8081818222999573 and ctrl_val is 0.07786828279495239
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 278: Wrist x=0.4349, y=0.8003, z_geom=0.0000, z_m=0.3390
+value is 0.4348742365837097 and ctrl_val is -0.1900880455970764
+value is 0.8002543449401855 and ctrl_val is 0.07311179637908935
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 279: Wrist x=0.4333, y=0.8007, z_geom=0.0000, z_m=0.3420
+value is 0.4332957863807678 and ctrl_val is -0.19103511571884155
+value is 0.8006813526153564 and ctrl_val is 0.0733680009841919
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 280: Wrist x=0.4334, y=0.7979, z_geom=0.0000, z_m=0.3430
+value is 0.43337202072143555 and ctrl_val is -0.19098937511444092
+value is 0.797855019569397 and ctrl_val is 0.07167220115661621
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 281: Wrist x=0.4378, y=0.7831, z_geom=0.0000, z_m=0.3430
+value is 0.43784502148628235 and ctrl_val is -0.18830557465553283
+value is 0.7831321954727173 and ctrl_val is 0.0628385066986084
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 282: Wrist x=0.4324, y=0.7941, z_geom=0.0000, z_m=0.3480
+value is 0.43243855237960815 and ctrl_val is -0.19154945611953736
+value is 0.7941135168075562 and ctrl_val is 0.06942729949951172
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 283: Wrist x=0.4443, y=0.7867, z_geom=0.0000, z_m=0.3480
+value is 0.44432687759399414 and ctrl_val is -0.18441646099090575
+value is 0.7867489457130432 and ctrl_val is 0.06500855684280395
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 284: Wrist x=0.4443, y=0.7850, z_geom=0.0000, z_m=0.3520
+value is 0.4443408250808716 and ctrl_val is -0.1844080924987793
+value is 0.7849573493003845 and ctrl_val is 0.06393359899520874
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 285: Wrist x=0.4449, y=0.7839, z_geom=0.0000, z_m=0.3550
+value is 0.4448908269405365 and ctrl_val is -0.18407809138298034
+value is 0.7839136719703674 and ctrl_val is 0.06330739259719849
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 286: Wrist x=0.4445, y=0.7867, z_geom=0.0000, z_m=0.3600
+value is 0.44446295499801636 and ctrl_val is -0.18433481454849243
+value is 0.7866791486740112 and ctrl_val is 0.06496667861938477
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 287: Wrist x=0.4508, y=0.7729, z_geom=0.0000, z_m=0.3630
+value is 0.4507788419723511 and ctrl_val is -0.18054528236389158
+value is 0.7729270458221436 and ctrl_val is 0.056715416908264156
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 288: Wrist x=0.4571, y=0.7638, z_geom=0.0000, z_m=0.3660
+value is 0.4570915102958679 and ctrl_val is -0.17675768136978148
+value is 0.7638250589370728 and ctrl_val is 0.05125422477722168
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 289: Wrist x=0.4616, y=0.7615, z_geom=0.0000, z_m=0.3710
+value is 0.4616098403930664 and ctrl_val is -0.1740466833114624
+value is 0.7615081071853638 and ctrl_val is 0.04986405372619629
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 290: Wrist x=0.4629, y=0.7571, z_geom=0.0000, z_m=0.3750
+value is 0.4629147946834564 and ctrl_val is -0.17326371073722838
+value is 0.7570863962173462 and ctrl_val is 0.04721102714538574
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 291: Wrist x=0.4659, y=0.7521, z_geom=0.0000, z_m=0.3780
+value is 0.46593067049980164 and ctrl_val is -0.17145418524742126
+value is 0.7521076798439026 and ctrl_val is 0.04422379732131958
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 292: Wrist x=0.4680, y=0.7517, z_geom=0.0000, z_m=0.3820
+value is 0.46803468465805054 and ctrl_val is -0.1701917767524719
+value is 0.751729428768158 and ctrl_val is 0.0439968466758728
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+Frame 293: Wrist x=0.4730, y=0.7487, z_geom=0.0000, z_m=0.3860
+value is 0.4729691445827484 and ctrl_val is -0.1672311007976532
+value is 0.7487056255340576 and ctrl_val is 0.0421825647354126
+index_pip_act: 0.00 rad (0.0°)
+middle_mcp_act: 0.00 rad (0.0°)
+✅ Replay complete.
+📁 Saved motion log to hand_position_log.csv

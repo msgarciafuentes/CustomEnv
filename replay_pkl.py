@@ -7,8 +7,8 @@ import numpy as np
 from mediapipe.framework.formats.landmark_pb2 import NormalizedLandmarkList
 
 # ---- Config ----
-PKL_FILE = "hand_record.pkl"   # landmarks recorded by hand_tracking_depth.py
-VIDEO_FILE = "hand_record.mp4" # mirrored preview saved during recording
+PKL_FILE = "recordings/hand_getball.pkl"   # landmarks recorded by hand_tracking_depth.py
+VIDEO_FILE = "recordings/hand_getball.mp4" # mirrored preview saved during recording
 CANVAS_H = 480                 # height of the hand panel (will match video height if possible)
 CANVAS_W = 640                 # width of the hand panel
 SHOW_INDEX = False             # show landmark indices
