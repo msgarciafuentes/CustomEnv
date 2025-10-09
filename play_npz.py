@@ -108,6 +108,29 @@ def play_demo(xml_path, npz_path, sim_hz=240, speed=1.0, loop=True,
     A_demo = A_demo_full[:, kept_cols]
     kept_names = [demo_names[j] for j in kept_cols]
 
+    # --------- Identify gripper axes in the kept set ---------
+    def idxs_for(prefix):
+        return [i for i, n in enumerate(kept_names) if n.startswith(prefix)]
+
+    gx_idx = idxs_for("gripper_x")
+    gy_idx = idxs_for("gripper_y")
+    gz_idx = idxs_for("gripper_z")
+
+    # --------- Apply flips (BEFORE zero-centering) ----------
+    #do_flip_x = flip_gripper or flip_x
+    #do_flip_y = flip_gripper or flip_y
+    #do_flip_z = flip_gripper or flip_z
+
+    if gx_idx:
+        A_demo[:, gx_idx] *= -1.0
+        print("[Flip] gripper_x")
+    if gy_idx:
+        A_demo[:, gy_idx] *= -1.0
+        print("[Flip] gripper_y")
+    # if gz_idx:
+    #     A_demo[:, gz_idx] *= -1.0
+    #     print("[Flip] gripper_z")
+
     # Build masks for zero-centering groups
     groups = {g.strip().lower() for g in zero_groups.split(",")} if zero_center else set()
     if "all" in groups:
@@ -132,6 +155,14 @@ def play_demo(xml_path, npz_path, sim_hz=240, speed=1.0, loop=True,
         print(f"[Calib] Zero-centered groups: {', '.join(sorted(groups)) or '(none)'}")
     elif zero_center:
         print("[Calib] Zero-centering requested but no matching groups found for current actuators.")
+
+
+    if gx_idx:
+        A_demo[:, gx_idx] = np.clip(A_demo[:, gx_idx] * 0.6, -1.0, 1.0)
+    if gy_idx:
+        A_demo[:, gy_idx] = np.clip(A_demo[:, gy_idx] * 0.7, -1.0, 1.0)
+    if gz_idx:
+        A_demo[:, gz_idx] = np.clip(A_demo[:, gz_idx] * 0.7, -1.0, 1.0)
 
     # Timing
     dt = 1.0 / float(sim_hz)
