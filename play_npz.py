@@ -34,11 +34,10 @@ def build_actuator_map(model):
 def make_index_and_ranges(model, demo_actuator_names):
     """
     Create an index map from demo's actuator order -> model.ctrl indices
-    and a per-index (lo, hi) range pulled from xml.
+    and per-index (lo, hi) from xml.
     """
     name_to_idx = build_actuator_map(model)
-    mapped = []
-    missing = []
+    mapped, missing = [], []
     for j, n in enumerate(demo_actuator_names):
         if n in name_to_idx:
             mapped.append((j, name_to_idx[n]))
@@ -61,9 +60,7 @@ def make_index_and_ranges(model, demo_actuator_names):
 
 
 def interp_action(t_demo, A_demo, t_cur):
-    """
-    Linearly interpolate action at time t_cur using the demo timestamps.
-    """
+    """Linearly interpolate action at time t_cur using the demo timestamps."""
     if t_cur <= t_demo[0]:
         return A_demo[0]
     if t_cur >= t_demo[-1]:
@@ -83,7 +80,13 @@ def norm_to_ctrl(a_norm, lo, hi):
 
 # ---------- Player ----------
 
-def play_demo(xml_path, npz_path, sim_hz=240, speed=1.0, loop=True):
+def play_demo(xml_path, npz_path, sim_hz=240, speed=1.0, loop=True,
+              zero_center=False, zero_groups="gripper"):
+    """
+    zero_center: enable subtracting the first frame on selected groups.
+    zero_groups: comma list among {'gripper','wrist','fingers','all'}.
+                 Default 'gripper' (x/y/z only) so fingers don't curl.
+    """
     print(f"[Info] XML: {xml_path}")
     print(f"[Info] NPZ: {npz_path}")
     print(f"[Info] sim_hz={sim_hz}  speed={speed}x  loop={loop}")
@@ -103,115 +106,90 @@ def play_demo(xml_path, npz_path, sim_hz=240, speed=1.0, loop=True):
 
     # Reduce to overlapping columns (if any demo actuators were missing in the model)
     A_demo = A_demo_full[:, kept_cols]
+    kept_names = [demo_names[j] for j in kept_cols]
 
-    # Cache a ctrl buffer
-    ctrl = np.zeros(model.nu, dtype=np.float32)
+    # Build masks for zero-centering groups
+    groups = {g.strip().lower() for g in zero_groups.split(",")} if zero_center else set()
+    if "all" in groups:
+        mask = np.ones((A_demo.shape[1],), dtype=bool)
+    else:
+        def has_prefix(name, pref): return name.startswith(pref)
+        is_gripper = np.array([has_prefix(n, "gripper_") for n in kept_names])
+        is_wrist   = np.array([has_prefix(n, "wrist_")   for n in kept_names])
+        # fingers: any of these prefixes
+        finger_prefixes = ("thumb_", "index_", "middle_", "ring_", "pinky_")
+        is_finger = np.array([n.startswith(finger_prefixes) for n in kept_names])
+
+        mask = np.zeros((A_demo.shape[1],), dtype=bool)
+        if "gripper" in groups: mask |= is_gripper
+        if "wrist"   in groups: mask |= is_wrist
+        if "fingers" in groups: mask |= is_finger
+
+    # Optional zero-centering (by masked groups only)
+    if zero_center and mask.any():
+        a0 = A_demo[0].copy()
+        A_demo[:, mask] = np.clip(A_demo[:, mask] - a0[mask], -1.0, 1.0)
+        print(f"[Calib] Zero-centered groups: {', '.join(sorted(groups)) or '(none)'}")
+    elif zero_center:
+        print("[Calib] Zero-centering requested but no matching groups found for current actuators.")
 
     # Timing
     dt = 1.0 / float(sim_hz)
     T_end = float(t_demo[-1])
 
-    # Controls: SPACE pause/play, . step fwd one physics step when paused, , step back small time,
-    #           + / - speed up/down, r restart, q quit
+    # Controls
     paused = False
     cur_t = 0.0
     speed_mult = float(speed)
 
+    ctrl = np.zeros(model.nu, dtype=np.float32)
+
     def apply_action(a_demo_row):
         """Write the (possibly interpolated) demo action into model.ctrl with proper ranges."""
-        # Map the overlapping demo columns into model indices
-        ctrl[:] = data.ctrl  # start from current to keep untouched actuators as-is
-        # to avoid per-index python loop, broadcast with numpy
+        ctrl[:] = data.ctrl  # keep other actuators untouched
         lo = ctrl_lo[demo_to_model_idx]
         hi = ctrl_hi[demo_to_model_idx]
         mapped = norm_to_ctrl(a_demo_row, lo, hi)
         ctrl[demo_to_model_idx] = mapped.astype(np.float32)
         data.ctrl[:] = ctrl
 
-    print("\n[Keys] SPACE: pause/play | . : step forward | , : small step back"
-          " | + / - : speed | r : restart | q : quit\n")
+    print("\n[Keys] (window controls) ESC: close | use viewer toolbar to pause. "
+          "This script replays continuously unless --loop is omitted.\n")
 
     with viewer.launch_passive(model, data) as v:
-        # set a nice default camera if it exists
+        # camera
         v.cam.azimuth = 120.0
         v.cam.elevation = -20.0
         v.cam.distance = 2.8
         v.cam.lookat[:] = [0.1, 0.0, 0.8]
 
-        # Prime the scene
         mujoco.mj_forward(model, data)
 
         last_wall = time.time()
         while v.is_running():
-            # --- keyboard via OpenGL viewer doesn't give direct key states;
-            # we use a minimal stdin non-blocking trick on keypress by polling viewer events.
-            # To keep it simple/portable, we read from input() is not ideal; instead,
-            # we rely on time-stepped controls and simple 'paused' toggle printed in console.
-            # Tip: you can also hook OpenCV's waitKey in a separate small window if you want.
-
-            # crude key polling through viewer's built-in shortcuts:
-            # Use ESC to close window (handled by viewer). We'll map speed changes on number keys.
-            # For richer key input, consider integrating glfw directly; to keep this standalone,
-            # we'll add a tiny stdin poll when paused.
-
-            # Try to keep real-time pacing
             now = time.time()
             while (now - last_wall) >= dt:
                 last_wall += dt
 
-                if not paused:
-                    # Advance demo clock
-                    cur_t += dt * speed_mult
-                    if cur_t > T_end:
-                        if loop:
-                            cur_t = 0.0
-                            # re-initialize physics for clean replay
-                            mujoco.mj_resetData(model, data)
-                            mujoco.mj_forward(model, data)
-                        else:
-                            paused = True
-                            cur_t = T_end
+                # Advance demo time
+                cur_t += dt * speed_mult
+                if cur_t > T_end:
+                    if loop:
+                        cur_t = 0.0
+                        mujoco.mj_resetData(model, data)
+                        mujoco.mj_forward(model, data)
+                    else:
+                        cur_t = T_end
 
-                    a = interp_action(t_demo, A_demo, cur_t)
-                    apply_action(a)
+                # Interpolate and apply
+                a = interp_action(t_demo, A_demo, cur_t)
+                apply_action(a)
 
-                # Step physics regardless (so gravity/contacts continue during pause if you want)
                 mujoco.mj_step(model, data)
 
-            # Render a frame
             v.sync()
 
-            # Lightweight interactive controls via console: read a single char when user presses ENTER
-            # (This keeps the script dependency-free. If you prefer real-time key handling, add OpenCV as in the recorder.)
-            if paused:
-                # Polling every ~0.25s for commands so we don't block rendering
-                if (time.time() - now) > 0.25:
-                    pass
-
-            # Non-blocking tiny input: use try/except around input with a timeout?
-            # Simpler: read environment variables or just print instructions once.
-            # For practical control, we allow live speed change via these viewer shortcuts:
-            #   Hold/Release 'Pause' by clicking the window's pause icon, or just let it run.
-            # If you absolutely need keys: set USE_OPENCV_KEYS=True and add cv2.waitKey handling.
-
-            # (To keep this file minimal and robust across platforms, we keep it simple.)
-
     print("[Done]")
-
-
-# ---------- Optional OpenCV keys version (uncomment to use) ----------
-# If you want proper keys (space/./,/+/-/r/q), uncomment the code below and set USE_OPENCV_KEYS=True.
-USE_OPENCV_KEYS = False
-if USE_OPENCV_KEYS:
-    import cv2
-    def poll_keys():
-        k = cv2.waitKey(1) & 0xFF
-        if k == 255:
-            return None
-        try:
-            return chr(k).lower()
-        except ValueError:
-            return None
 
 
 # ---------- CLI ----------
@@ -225,6 +203,12 @@ if __name__ == "__main__":
     parser.add_argument("--hz", type=int, default=240, help="Physics step rate.")
     parser.add_argument("--speed", type=float, default=1.0, help="Playback speed multiplier.")
     parser.add_argument("--loop", action="store_true", help="Loop the demo when it ends.")
+    parser.add_argument("--zero-center", action="store_true", help="Enable zero-centering (default groups: gripper).")
+    parser.add_argument("--zero-groups", type=str, default="gripper",
+                        help="Comma list from {'gripper','wrist','fingers','all'}. Default 'gripper'.")
+
     args = parser.parse_args()
 
-    play_demo(args.xml, args.npz, sim_hz=args.hz, speed=args.speed, loop=bool(args.loop))
+    play_demo(args.xml, args.npz,
+              sim_hz=args.hz, speed=args.speed, loop=bool(args.loop),
+              zero_center=args.zero_center, zero_groups=args.zero_groups)

@@ -707,7 +707,7 @@ def record_session(xml_path: str,
 # -----------------------------
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Record 24-DOF hand actions from MediaPipe + Depth using MuJoCo XML actuator order.")
-    parser.add_argument("--xml", type=str, default="/mnt/data/custom_env_mediapipe_demo.xml", help="Path to MuJoCo XML (actuator order source)")
+    parser.add_argument("--xml", type=str, default="assets/custom_env_mediapipe_demo.xml", help="Path to MuJoCo XML (actuator order source)")
     parser.add_argument("--cam", type=int, default=0, help="Camera index for OpenCV / RealSense")
     parser.add_argument("--inspect", type=str, default="", help="Path to NPZ to inspect (skip recording)")
     parser.add_argument("--frames", type=str, default="0:50:1",
