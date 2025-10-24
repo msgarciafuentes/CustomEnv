@@ -5,21 +5,21 @@
     <pair geom1="cube_geom" geom2="table_top"
           condim="6" friction="3.5 0.18 0.10"
           solref="0.0007 1" solimp="0.99 0.9997 0.0005"/>
-    <!-- Hand tips ↔ cube only -->
+    <!-- Hand tips ↔ cube only (friction values updated) -->
     <pair geom1="thumb_ip"  geom2="cube_geom"
-          condim="6" friction="4.2 0.28 0.14"
+          condim="6" friction="5.0 0.35 0.18"
           solref="0.0007 1" solimp="0.990 0.9997 0.0005"/>
     <pair geom1="index_dip"  geom2="cube_geom"
-          condim="6" friction="4.2 0.28 0.14"
+          condim="6" friction="5.0 0.35 0.18"
           solref="0.0007 1" solimp="0.990 0.9997 0.0005"/>
     <pair geom1="middle_dip" geom2="cube_geom"
-          condim="6" friction="4.2 0.28 0.14"
+          condim="6" friction="5.0 0.35 0.18"
           solref="0.0007 1" solimp="0.990 0.9997 0.0005"/>
     <pair geom1="ring_dip"   geom2="cube_geom"
-          condim="6" friction="4.2 0.28 0.14"
+          condim="6" friction="5.0 0.35 0.18"
           solref="0.0007 1" solimp="0.990 0.9997 0.0005"/>
     <pair geom1="pinky_dip"  geom2="cube_geom"
-          condim="6" friction="4.2 0.28 0.14"
+          condim="6" friction="5.0 0.35 0.18"
           solref="0.0007 1" solimp="0.990 0.9997 0.0005"/>
   </contact>
 
@@ -30,11 +30,9 @@
               texuniform="true" reflectance=".2"/>
   </asset>
 
-
   <default>
     <!-- More damping in joints so your hand doesn't punch the ball -->
     <joint damping="2.0"/>
-
     <!-- Softer, better-damped contacts + small margin for early, gentle contact -->
     <geom solref="0.005 1" solimp="0.95 0.99 0.002"
           friction="1.20 0.01 0.002" margin="0.002"/>
@@ -48,10 +46,9 @@
     <!-- Table -->
     <body name="table" pos="0 0 0">
       <geom name="table_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" rgba="0.2 0.4 0.8 1"
-      condim="6" friction="3.0 0.12 0.06" solref="0.003 1" solimp="0.97 0.999 0.001"
-      contype="1" conaffinity="1"/>
+            condim="6" friction="3.0 0.12 0.06" solref="0.003 1" solimp="0.97 0.999 0.001"
+            contype="1" conaffinity="1"/>
     </body>
-
 
     <!-- hand Gripper -->
     <body name="gripper_base" pos="0.0 -0.3 0.55">
@@ -68,11 +65,7 @@
       <geom name="index_to_middle" type="capsule" fromto="-0.03 0 0.065  -0.01 0 0.07" size="0.005" rgba="0 0 0 1" mass="0.01"/>
       <geom name="middle_to_ring" type="capsule" fromto="-0.01 0 0.07  0.01 0 0.05" size="0.005" rgba="0 0 0 1" mass="0.01"/>
       <geom name="ring_to_pinky" type="capsule" fromto="0.01 0 0.05  0.03 0 0.045" size="0.005" rgba="0 0 0 1" mass="0.01"/>
-      
-      <!-- <geom name="palm_connector_middle" type="capsule" fromto="0 0 0  -0.01 0 0.05" size="0.005" rgba="0 0 0 1" mass="0.01"/> -->
-      <!-- <geom name="palm_connector_ring" type="capsule" fromto="0 0 0  0.01 0 0.05" size="0.005" rgba="0 0 0 1" mass="0.01"/> -->
       <geom name="palm_connector_pinky" type="capsule" fromto="0 0 0  0.03 0 0.045" size="0.005" rgba="0 0 0 1" mass="0.01"/>
-
 
       <!-- Thumb Finger -->
       <body name="thumb_mcp" pos="-0.05 0 0.025">
@@ -81,14 +74,15 @@
         <joint name="thumb_roll" type="hinge" axis="0 0 -1" range="0 2.0944" damping="0.1"/>
 
         <geom type="capsule" size="0.005 0.03" fromto="0 0 0 -0.0125 0 0.03"
-            mass="0.01" rgba="0 0 1 1"
-            condim="6" friction="1.8 0.02 0.002"/>
+              mass="0.01" rgba="0 0 1 1"
+              condim="6" friction="1.8 0.02 0.002"/>
         <body name="thumb_ip" pos="-0.0125 0 0.03">
           <joint name="thumb_ip" type="hinge" axis="0 1 0" range="0 2.0944" damping="0.1"/>
+          <!-- UPDATED friction on fingertip geom -->
           <geom name="thumb_ip" type="capsule" size="0.005 0.03" fromto="0 0 0  -0.025 0 0.02"
-              mass="0.01" rgba="1 0 0 1"
-              condim="6" friction="1.8 0.02 0.002"
-              solref="0.003 1" solimp="0.97 0.999 0.001"/>
+                mass="0.01" rgba="1 0 0 1"
+                condim="6" friction="3.0 0.12 0.06"
+                solref="0.003 1" solimp="0.97 0.999 0.001"/>
         </body>
       </body>
 
@@ -97,19 +91,20 @@
         <joint name="index_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="2.0"/>
         <joint name="index_abd" type="hinge" axis="0 -1 0" range="0 2.0944" damping="2.0"/>
         <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005"
-            mass="0.01" rgba="0 1 0 1"
-            condim="6" friction="2.2 0.05 0.01"/>
+              mass="0.01" rgba="0 1 0 1"
+              condim="6" friction="2.2 0.05 0.01"/>
         <body name="index_pip" pos="0 0 0.04">
           <joint name="index_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
           <geom type="capsule" fromto="0 0 0 0 0 0.02" size="0.005"
-              mass="0.01" rgba="0 0 1 1"
-              condim="6" friction="2.2 0.05 0.01"/>
+                mass="0.01" rgba="0 0 1 1"
+                condim="6" friction="2.2 0.05 0.01"/>
           <body name="index_dip" pos="0 0 0.02">
             <joint name="index_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
+            <!-- UPDATED friction on fingertip geom -->
             <geom name="index_dip" type="capsule" fromto="0 0 0 0 0 0.01" size="0.005"
-                mass="0.01" rgba="1 0 0 1"
-                condim="6" friction="2.2 0.05 0.01"
-                solref="0.003 1" solimp="0.97 0.999 0.001"/>
+                  mass="0.01" rgba="1 0 0 1"
+                  condim="6" friction="3.0 0.12 0.06"
+                  solref="0.003 1" solimp="0.97 0.999 0.001"/>
           </body>
         </body>
       </body>
@@ -117,42 +112,44 @@
       <!-- Middle Finger -->
       <body name="middle_base" pos="-0.01 0 0.07">
         <joint name="middle_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="2.0"/>
-        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" 
-            rgba="0 1 0 1" mass="0.01"
-            condim="6" friction="2.2 0.05 0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005"
+              rgba="0 1 0 1" mass="0.01"
+              condim="6" friction="2.2 0.05 0.01"/>
         <body name="middle_pip" pos="0 0 0.04">
           <joint name="middle_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
-          <geom type="capsule" fromto="0 0 0 0 0 0.03" size="0.005" 
-              rgba="0 0 1 1" mass="0.01"
-              condim="6" friction="2.2 0.05 0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.03" size="0.005"
+                rgba="0 0 1 1" mass="0.01"
+                condim="6" friction="2.2 0.05 0.01"/>
           <body name="middle_dip" pos="0 0 0.03">
             <joint name="middle_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
-            <geom name="middle_dip" type="capsule" fromto="0 0 0 0 0 0.02" size="0.005" 
-                rgba="1 0 0 1" mass="0.01"
-                condim="6" friction="2.2 0.05 0.01"
-                solref="0.003 1" solimp="0.97 0.999 0.001"/>
+            <!-- UPDATED friction on fingertip geom -->
+            <geom name="middle_dip" type="capsule" fromto="0 0 0 0 0 0.02" size="0.005"
+                  rgba="1 0 0 1" mass="0.01"
+                  condim="6" friction="3.0 0.12 0.06"
+                  solref="0.003 1" solimp="0.97 0.999 0.001"/>
           </body>
         </body>
       </body>
-      
+
       <!-- Ring Finger -->
       <body name="ring_base" pos="0.01 0 0.05">
         <joint name="ring_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="2.0"/>
         <joint name="ring_abd" type="hinge" axis="0 1 0" range="0 2.0944" damping="2.0"/>
-        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005" 
-            rgba="0 1 0 1" mass="0.01"
-            condim="6" friction="2.2 0.05 0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.04" size="0.005"
+              rgba="0 1 0 1" mass="0.01"
+              condim="6" friction="2.2 0.05 0.01"/>
         <body name="ring_pip" pos="0 0 0.04">
           <joint name="ring_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
-          <geom type="capsule" fromto="0 0 0 0 0 0.03" size="0.005" 
-              rgba="0 0 1 1" mass="0.01"
-              condim="6" friction="2.2 0.05 0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.03" size="0.005"
+                rgba="0 0 1 1" mass="0.01"
+                condim="6" friction="2.2 0.05 0.01"/>
           <body name="ring_dip" pos="0 0 0.03">
             <joint name="ring_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
-            <geom name="ring_dip" type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" 
-                rgba="1 0 0 1" mass="0.01"
-                condim="6" friction="2.2 0.05 0.01"
-                solref="0.003 1" solimp="0.97 0.999 0.001"/>
+            <!-- UPDATED friction on fingertip geom -->
+            <geom name="ring_dip" type="capsule" fromto="0 0 0 0 0 0.01" size="0.005"
+                  rgba="1 0 0 1" mass="0.01"
+                  condim="6" friction="3.0 0.12 0.06"
+                  solref="0.003 1" solimp="0.97 0.999 0.001"/>
           </body>
         </body>
       </body>
@@ -161,33 +158,34 @@
       <body name="pinky_base" pos="0.03 0 0.045">
         <joint name="pinky_mcp" type="hinge" axis="-1 0 0" range="0 2.0944" damping="2.0"/>
         <joint name="pinky_abd" type="hinge" axis="0 1 0" range="0 2.0944" damping="2.0"/>
-        <geom type="capsule" fromto="0 0 0 0 0 0.02" size="0.005" 
-            rgba="0 1 0 1" mass="0.01"
-            condim="6" friction="2.2 0.05 0.01"/>
+        <geom type="capsule" fromto="0 0 0 0 0 0.02" size="0.005"
+              rgba="0 1 0 1" mass="0.01"
+              condim="6" friction="2.2 0.05 0.01"/>
         <body name="pinky_pip" pos="0 0 0.02">
           <joint name="pinky_pip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
-          <geom type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" 
-              rgba="0 0 1 1" mass="0.01"
-              condim="6" friction="2.2 0.05 0.01"/>
+          <geom type="capsule" fromto="0 0 0 0 0 0.01" size="0.005"
+                rgba="0 0 1 1" mass="0.01"
+                condim="6" friction="2.2 0.05 0.01"/>
           <body name="pinky_dip" pos="0 0 0.01">
             <joint name="pinky_dip" type="hinge" axis="-1 0 0" range="0 2.0944" damping="1.0"/>
-            <geom name="pinky_dip" type="capsule" fromto="0 0 0 0 0 0.01" size="0.005" 
-                rgba="1 0 0 1" mass="0.01"
-                condim="6" friction="2.2 0.05 0.01"
-                solref="0.003 1" solimp="0.97 0.999 0.001"/>
+            <!-- UPDATED friction on fingertip geom -->
+            <geom name="pinky_dip" type="capsule" fromto="0 0 0 0 0 0.01" size="0.005"
+                  rgba="1 0 0 1" mass="0.01"
+                  condim="6" friction="3.0 0.12 0.06"
+                  solref="0.003 1" solimp="0.97 0.999 0.001"/>
           </body>
         </body>
       </body>
-
     </body>
 
     <!-- Cube to pick up -->
     <body name="cube" pos="-0.03 0.09 0.85">
-      <joint type="free"/>
+      <joint type="free" damping="1.0"/>
+      <!-- UPDATED friction on cube geom -->
       <geom name="cube_geom" type="box" size="0.020 0.020 0.020" density="1000"
-            rgba="0.9 0.9 0.9 1" 
-            condim="6" friction="2.0 0.05 0.01" margin="0.002"
-            solref="0.003 1" solimp="0.97 0.999 0.001"
+            rgba="0.9 0.9 0.9 1"
+            condim="6" friction="20 2 0.2" margin="0.002"
+            solref="0.001 1" solimp="0.985 0.9995 0.0006"
             contype="1" conaffinity="1"/>
     </body>
 
@@ -196,16 +194,11 @@
       <geom name="target_geom" type="box" size="0.09 0.09 0.001" density="0"
             rgba="0.8 0.1 0.1 1" contype="0" conaffinity="0"/>
     </body>
-  
+
   </worldbody>
 
-  
-    
-
   <actuator>
-    <!-- Gripper actuators -->
-    <!-- <position name="thumb_act" joint="thumb_base" ctrlrange="-0.02 1" kp="500"/> -->
-    <!-- IMU -->
+    <!-- IMU / base -->
     <position name="gripper_x_act" joint="gripper_x" ctrlrange="-1 1" kp="150"/>
     <position name="gripper_y_act" joint="gripper_y" ctrlrange="-1 1" kp="50"/>
     <position name="gripper_z_act" joint="gripper_z" ctrlrange="-1 1" kp="150"/>
@@ -214,9 +207,8 @@
     <position name="wrist_abduction_yaw_act" joint="wrist_abduction_yaw" ctrlrange="-1 1" kp="15"/>
     <position name="wrist_roll_act" joint="wrist_roll" ctrlrange="-1 1" kp="15"/>
 
-
     <position name="thumb_base_act" joint="thumb_base" ctrlrange="0 2" kp="30"/>
-    <position name="thumb_roll_act" joint="thumb_roll" ctrlrange="-1 2" kp="30"/>
+    <position name="thumb_roll_act" joint="thumb_roll" ctrlrange="0 2" kp="30"/>
     <position name="thumb_mcp_act" joint="thumb_mcp" ctrlrange="0 2" kp="30"/>
     <position name="thumb_ip_act" joint="thumb_ip" ctrlrange="0 2" kp="30"/>
 
@@ -239,6 +231,4 @@
     <position name="pinky_pip_act" joint="pinky_pip" ctrlrange="0 2" kp="30"/>
     <position name="pinky_dip_act" joint="pinky_dip" ctrlrange="0 2" kp="30"/>
   </actuator>
-
-
 </mujoco>
