@@ -52,12 +52,33 @@ src_idx = np.arange(len(imu_centered_rad), dtype=float)
 dst_idx = np.linspace(0, len(imu_centered_rad) - 1, L)
 
 imu_resampled = pd.DataFrame({
-    'wrist_flex_act':    np.interp(dst_idx, src_idx, imu_centered_rad['pitch'].to_numpy()),  # pitch -> flex
-    'wrist_abduction_act': np.interp(dst_idx, src_idx, imu_centered_rad['yaw'].to_numpy()),  # yaw -> abduction
+    'wrist_flex_pitch_act':    np.interp(dst_idx, src_idx, imu_centered_rad['pitch'].to_numpy()),  # pitch -> flex
+    'wrist_abduction_yaw_act': np.interp(dst_idx, src_idx, imu_centered_rad['yaw'].to_numpy()),  # yaw -> abduction
     'wrist_roll_act':    np.interp(dst_idx, src_idx, imu_centered_rad['roll'].to_numpy()),   # roll -> roll
 })
 
 imu_resampled.to_csv(f'output/imu_resampled_{imu_filename}.csv', index=False)
+
+cam_move_df = pd.read_csv('cam_movement.csv')
+
+vals_x = cam_move_df['gripper_x_act'].to_numpy()
+vals_y = cam_move_df['gripper_y_act'].to_numpy()
+vals_z = cam_move_df['gripper_z_act'].to_numpy()
+
+rep = int(np.ceil(L / len(vals_x)))
+gripper_resampled = pd.DataFrame({
+    'gripper_x_act': np.tile(vals_x, rep)[:L],
+    'gripper_y_act': np.tile(vals_y, rep)[:L],
+    'gripper_z_act': np.tile(vals_z, rep)[:L],
+})
+
+gain = 0.5
+
+gripper_resampled['gripper_x_act'] *= gain
+gripper_resampled['gripper_y_act'] *= gain
+gripper_resampled['gripper_z_act'] *= gain
+
+gripper_resampled.to_csv('output/gripper_resampled.csv', index=False)
 
 # Find your PNG sequences (adjust patterns/paths if needed)
 color_files = sorted(glob.glob('images/color_image_*.png'))
@@ -68,11 +89,11 @@ if not color_files:
 if not depth_files:
     print("[WARN] No depth PNGs matched pattern: depth_image_*.png")
 
-# --- NEW: make panels movable/resizable + set initial positions ---
+# make panels movable/resizable + set initial positions ---
 cv2.namedWindow("Color Image", cv2.WINDOW_NORMAL)
 cv2.namedWindow("Depth Image", cv2.WINDOW_NORMAL)
 
-# Optional: set initial sizes (pixels)
+# set initial sizes (pixels)
 cv2.resizeWindow("Color Image", 640, 480)
 cv2.resizeWindow("Depth Image", 640, 480)
 
@@ -105,7 +126,7 @@ sensor_to_actuator = {
 }
 
 # Load your custom MuJoCo model
-model = mujoco.MjModel.from_xml_path('assets/custom_env2.xml')
+model = mujoco.MjModel.from_xml_path('assets/glove_imu_cam_hand.xml')
 data = mujoco.MjData(model)
 
 # Find actuator IDs
@@ -117,9 +138,13 @@ for dip_act in ['index_dip_act', 'middle_dip_act', 'ring_dip_act', 'pinky_dip_ac
     if dip_act in actuator_names:
         actuator_ids[dip_act] = model.actuator(dip_act).id
 
-for wrist_act in ['wrist_flex_act', 'wrist_abduction_act', 'wrist_roll_act']:
+for wrist_act in ['wrist_flex_pitch_act', 'wrist_abduction_yaw_act', 'wrist_roll_act']:
     if wrist_act in actuator_names:
         actuator_ids[wrist_act] = model.actuator(wrist_act).id
+
+for g_act in ['gripper_x_act', 'gripper_y_act', 'gripper_z_act']:
+    if g_act in actuator_names:
+        actuator_ids[g_act] = model.actuator(g_act).id
 
 for actuator, id in actuator_ids.items():
     print(f"Actuator {id}: {actuator}")
@@ -165,6 +190,7 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
             next_row = normalized_data.iloc[frame_index + 1]
 
             imu_row = imu_resampled.iloc[frame_index]
+            g_row = gripper_resampled.iloc[frame_index]
 
             for step in range(steps):
                 blend = step / steps
@@ -178,10 +204,17 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
                     actuator_id = actuator_ids[actuator_name]
                     #print(f"actuator id: {actuator_id} and interpolated data: {interpolated_value}")
                     data.ctrl[actuator_id] = interpolated_value
-                
-                data.ctrl[actuator_ids['wrist_flex_act']]       = imu_row['wrist_flex_act']
-                data.ctrl[actuator_ids['wrist_abduction_act']]  = imu_row['wrist_abduction_act']
+
+                data.ctrl[actuator_ids['wrist_flex_pitch_act']]       = imu_row['wrist_flex_pitch_act']
+                data.ctrl[actuator_ids['wrist_abduction_yaw_act']]  = imu_row['wrist_abduction_yaw_act']
                 data.ctrl[actuator_ids['wrist_roll_act']]       = imu_row['wrist_roll_act']
+
+                if 'gripper_x_act' in actuator_ids:
+                    data.ctrl[actuator_ids['gripper_x_act']] = -g_row['gripper_x_act']
+                if 'gripper_y_act' in actuator_ids:
+                    data.ctrl[actuator_ids['gripper_y_act']] = g_row['gripper_y_act']
+                if 'gripper_z_act' in actuator_ids:
+                    data.ctrl[actuator_ids['gripper_z_act']] = g_row['gripper_z_act']
 
                 dip_scale = 0.66  # or 2/3
 
@@ -190,8 +223,7 @@ with mujoco.viewer.launch_passive(model, data) as viewer:
                 data.ctrl[actuator_ids['middle_dip_act']] = data.ctrl[actuator_ids['middle_pip_act']] * dip_scale
                 data.ctrl[actuator_ids['ring_dip_act']] = data.ctrl[actuator_ids['ring_pip_act']] * dip_scale
                 data.ctrl[actuator_ids['pinky_dip_act']] = data.ctrl[actuator_ids['pinky_pip_act']] * dip_scale
-
-
+                
                 mujoco.mj_step(model, data)
                 viewer.sync()
                 time.sleep(frame_duration)
